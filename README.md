@@ -6,7 +6,7 @@
 
 ## General Info
 This browser based web application to ...
-SAM MADE THIS CHANGE
+* Hi my name is Sam, I am really excited to learn more programming languages.
 	
 ## Technologies
 Technologies used for this project:
