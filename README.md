@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+SAM MADE THIS CHANGE
 	
 ## Technologies
 Technologies used for this project:
