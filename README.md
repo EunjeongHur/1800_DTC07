@@ -7,18 +7,11 @@
 ## General Info
 
 This browser based web application to ...
-<<<<<<< HEAD
-* Hi my name is Sam, I am really excited to learn more programming languages.
-=======
-<<<<<<< HEAD
-* My name is Peter and I'm really excited to learn programming 
->>>>>>> refs/remotes/origin/main
-	
-=======
 
+- Hi my name is Sam, I am really excited to learn more programming languages.
+- My name is Peter and I'm really excited to learn programming
 - Hi my name is Eunjeong(Alice) Hur and I'm excited to learn more programming languages
 
->>>>>>> 76df6ecb05ec3d39a137fbd304c8984007f035ab
 ## Technologies
 
 Technologies used for this project:
