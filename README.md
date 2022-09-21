@@ -7,7 +7,8 @@
 ## General Info
 
 This browser based web application to ...
-\*Hi my name is Eunjeong(Alice) Hur and I'm excited to learn more programming languages
+
+- Hi my name is Eunjeong(Alice) Hur and I'm excited to learn more programming languages
 
 ## Technologies
 
