@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+* My name is Peter and I'm really excited to learn programming 
 	
 ## Technologies
 Technologies used for this project:
