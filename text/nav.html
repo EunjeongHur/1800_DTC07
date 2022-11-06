@@ -1,5 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
+        <div class="btn-group">
+            <span type="button" class="material-icons btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="account_circle_icon">account_circle</span>
+            <div class="dropdown-menu dorpdown-menu-right">
+                <button id="setting" class="dropdown-item" type="button" onclick="setting()">Settings</button>
+                <button id="logged_out" class="dropdown-item" type="button" onclick="logged_out()">Log out</button>
+            </div>
+        </div>
         <a class="navbar-brand text-light" href="main.html">
             <img src="../images/logo.png" height="36">
             LearnStream</a>
@@ -29,10 +36,6 @@
                     #">Grades</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success text-light" type="submit">Search</button>
-            </form>
         </div>
     </div>
 </nav>

@@ -12,7 +12,6 @@ function insertName() {
 			//method #2:  insert using jquery
 			$("#name-goes-here").text(user_Name); //using jquery
 		} else {
-			console.log("hi")
 			// No user is signed in.
 		}
 	});

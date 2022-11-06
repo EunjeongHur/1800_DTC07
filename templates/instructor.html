@@ -56,11 +56,12 @@
     <!-------------------------------------------->
     <!-- Other libraries and styles of your own -->
     <!-------------------------------------------->
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
   </head>
   <body>
     <nav id="navbarPlaceholder"></nav>
+    <div id="logged_in" class="after-nav">
     <!-- <div class="container">
       <form action="" id="instructorForm" style="width: 80%; margin: auto">
         <fieldest>
@@ -141,143 +142,143 @@
     </div> -->
     <!-- the body of your page goes here -->
     <!-- stuff -->
-    <div class="container">
-      <form
-        action=""
-        name="instructorform"
-        id="instructorForm"
-        style="width: 80%; margin: auto"
-      >
-        <legend style="margin-top: 20px">Create task for Students</legend>
-        <div class="form-group">
-          <label for="taskTitle" style="margin-top: 18px; margin-bottom: 8px"
-            >Task Title</label
-          >
-          <input
-            type="text"
-            name="taskTitle"
-            id="taskTitle"
-            class="form-control"
-          />
-        </div>
-        <div style="margin-top: 30px">Task Type:</div>
-        <!-- cut start -->
+      <div class="container">
+        <form
+          action=""
+          name="instructorform"
+          id="instructorForm"
+          style="width: 80%; margin: auto"
+        >
+          <legend style="margin-top: 20px">Create task for Students</legend>
+          <div class="form-group">
+            <label for="taskTitle" style="margin-top: 18px; margin-bottom: 8px"
+              >Task Title</label
+            >
+            <input
+              type="text"
+              name="taskTitle"
+              id="taskTitle"
+              class="form-control"
+            />
+          </div>
+          <div style="margin-top: 30px">Task Type:</div>
+          <!-- cut start -->
 
-        <!-- <div
-          class="btn-group btn-group-toggle"
-          data-toggle="buttons"
-          style="margin-top: 8px"
-        > -->
-        <div style="margin-top: 0px; margin-bottom: 50px">
-          <input
-            type="radio"
-            class="btn-check"
-            name="options-outlined"
-            id="Assignment"
-            autocomplete="off"
-          />
-          <label class="btn btn-outline-success me-2 px-3 my-2" for="Assignment"
-            >Assignment</label
-          >
-          <input
-            type="radio"
-            class="btn-check"
-            name="options-outlined"
-            id="Discussion"
-            autocomplete="off"
-          />
-          <label class="btn btn-outline-success me-2 px-4 my-2" for="Discussion"
-            >Discussion</label
-          >
-          <input
-            type="radio"
-            class="btn-check"
-            name="options-outlined"
-            id="Lab"
-            autocomplete="off"
-          />
-          <label class="btn btn-outline-success me-2 px-5 my-2" for="Lab">Lab</label>
-          <input
-            type="radio"
-            class="btn-check"
-            name="options-outlined"
-            id="Quiz"
-            autocomplete="off"
-          />
-          <label class="btn btn-outline-success me-2 px-5 my-2" for="Quiz">Quiz</label>
-          <input
-            type="radio"
-            class="btn-check"
-            name="options-outlined"
-            id="Exam"
-            autocomplete="off"
-          />
-          <label class="btn btn-outline-success me-2 px-5 my-2" for="Exam">Exam</label>
-
-          <!-- cut end -->
-          <!-- original down below -->
-          <label class="btn btn-primary-outline">
+          <!-- <div
+            class="btn-group btn-group-toggle"
+            data-toggle="buttons"
+            style="margin-top: 8px"
+          > -->
+          <div style="margin-top: 0px; margin-bottom: 50px">
             <input
               type="radio"
-              name="options"
+              class="btn-check"
+              name="options-outlined"
               id="Assignment"
               autocomplete="off"
             />
-            Assignment
-          </label>
-          <label class="btn btn-primary-outline">
+            <label class="btn btn-outline-success me-2 px-3 my-2" for="Assignment"
+              >Assignment</label
+            >
             <input
               type="radio"
-              name="options"
+              class="btn-check"
+              name="options-outlined"
               id="Discussion"
               autocomplete="off"
             />
-            Discussion
-          </label>
-          <label class="btn btn-primary-outline">
-            <input type="radio" name="options" id="Lab" autocomplete="off" />
-            Lab
-          </label>
-          <label class="btn btn-primary-outline">
-            <input type="radio" name="options" id="Quiz" autocomplete="off" />
-            Quiz
-          </label>
-          <label class="btn btn-primary-outline">
-            <input type="radio" name="options" id="Exam" autocomplete="off" />
-            Exam
-          </label>
-        </div>
-        <div style="margin-top: 18px margin-bottom 50px">Due Date</div>
-        <div class="row form-group">
-          <div class="col-sm-4">
-            <input type="date" name="dueDate" />
-          </div>
-        </div>
-        <!-- original above here -->
+            <label class="btn btn-outline-success me-2 px-4 my-2" for="Discussion"
+              >Discussion</label
+            >
+            <input
+              type="radio"
+              class="btn-check"
+              name="options-outlined"
+              id="Lab"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-success me-2 px-5 my-2" for="Lab">Lab</label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="options-outlined"
+              id="Quiz"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-success me-2 px-5 my-2" for="Quiz">Quiz</label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="options-outlined"
+              id="Exam"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-success me-2 px-5 my-2" for="Exam">Exam</label>
 
-        <div class="form-group" style="margin-top: 50px">
-          <label for="exampleFormControlTextarea1" style="margin-bottom: 10px"
-            >Task Description</label
-          >
-          <textarea
-            class="form-control"
-            id="exampleFormControlTextarea1"
-            rows="9"
-          ></textarea>
+            <!-- cut end -->
+            <!-- original down below -->
+            <label class="btn btn-primary-outline">
+              <input
+                type="radio"
+                name="options"
+                id="Assignment"
+                autocomplete="off"
+              />
+              Assignment
+            </label>
+            <label class="btn btn-primary-outline">
+              <input
+                type="radio"
+                name="options"
+                id="Discussion"
+                autocomplete="off"
+              />
+              Discussion
+            </label>
+            <label class="btn btn-primary-outline">
+              <input type="radio" name="options" id="Lab" autocomplete="off" />
+              Lab
+            </label>
+            <label class="btn btn-primary-outline">
+              <input type="radio" name="options" id="Quiz" autocomplete="off" />
+              Quiz
+            </label>
+            <label class="btn btn-primary-outline">
+              <input type="radio" name="options" id="Exam" autocomplete="off" />
+              Exam
+            </label>
+          </div>
+          <div style="margin-top: 18px margin-bottom 50px">Due Date</div>
+          <div class="row form-group">
+            <div class="col-sm-4">
+              <input type="date" name="dueDate" />
+            </div>
+          </div>
+          <!-- original above here -->
+
+          <div class="form-group" style="margin-top: 50px">
+            <label for="exampleFormControlTextarea1" style="margin-bottom: 10px"
+              >Task Description</label
+            >
+            <textarea
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="9"
+            ></textarea>
+          </div>
+        </form>
+        <div class="inputBox" style="width: 80%; margin: auto; margin-top: 18px">
+          <button type="submit" class="btn btn-primary" id="submit_form">
+            Submit
+          </button>
+          <button type="submit" class="btn btn-primary">
+            <a href="main.html" style="color: white; text-decoration: none"
+              >Cancel</a
+            >
+          </button>
         </div>
-      </form>
-      <div class="inputBox" style="width: 80%; margin: auto; margin-top: 18px">
-        <button type="submit" class="btn btn-primary" id="submit_form">
-          Submit
-        </button>
-        <button type="submit" class="btn btn-primary">
-          <a href="main.html" style="color: white; text-decoration: none"
-            >Cancel</a
-          >
-        </button>
       </div>
     </div>
-
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>
 
@@ -286,6 +287,7 @@
     <!---------------------------------------------->
     <script src="../scripts/firebaseAPI_TEAM07.js"></script>
     <script src="../scripts/skeleton.js"></script>
+    <script src="../scripts/log_in.js"></script>
     <script src="../scripts/instructor.js"></script>
   </body>
 </html>

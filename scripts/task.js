@@ -18,4 +18,13 @@ function displayTask(collection) {
             })
         })
 }
-displayTask("tasks");
+
+firebase.auth().onAuthStateChanged((user) => {
+    // Check if a user is signed in:
+    if (user) {
+        displayTask("tasks");
+    } else {
+        document.getElementById("logged_in").style.display="none";
+        window.location.href="index.html"
+    }
+});
