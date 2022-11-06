@@ -6,7 +6,12 @@ function taskHandler(){
     const task_title = form.querySelector('input[name=taskTitle]').value;
     
     // Get the task type 
-    const task_type = form.querySelector('input[name=options]:checked').id;
+    //////////////////
+    // Original Way //
+    //////////////////s
+    // const task_type = form.querySelector('input[name=options]:checked').id;
+
+    const task_type = document.getElementById('task_options').selectedOptions[0].value;
     
     //Get the due date
     const due_date = form.querySelector('input[name=dueDate]').value;

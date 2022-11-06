@@ -161,7 +161,7 @@
               class="form-control"
             />
           </div>
-          <div style="margin-top: 30px">Task Type:</div>
+          <div style="margin-top: 30px; margin-bottom:10px;" >Task Type:</div>
           <!-- cut start -->
 
           <!-- <div
@@ -169,7 +169,8 @@
             data-toggle="buttons"
             style="margin-top: 8px"
           > -->
-          <div style="margin-top: 0px; margin-bottom: 50px">
+          <!-- Made by Sam (?) -->
+          <!-- <div style="margin-top: 0px; margin-bottom: 50px">
             <input
               type="radio"
               class="btn-check"
@@ -213,11 +214,11 @@
               id="Exam"
               autocomplete="off"
             />
-            <label class="btn btn-outline-success me-2 px-5 my-2" for="Exam">Exam</label>
-
+            <label class="btn btn-outline-success me-2 px-5 my-2" for="Exam">Exam</label> -->
+            
             <!-- cut end -->
             <!-- original down below -->
-            <label class="btn btn-primary-outline">
+            <!-- <label class="btn btn-primary-outline">
               <input
                 type="radio"
                 name="options"
@@ -247,15 +248,24 @@
               <input type="radio" name="options" id="Exam" autocomplete="off" />
               Exam
             </label>
+          </div> -->
+          <div class="form-group">
+            <select class="form-control" id="task_options">
+              <option>Assignment</option>
+              <option>Discussion</option>
+              <option>Lab</option>
+              <option>Quiz</option>
+              <option>Exam</option>
+            </select>
           </div>
-          <div style="margin-top: 18px margin-bottom 50px">Due Date</div>
+          <div style="margin-top: 30px; margin-bottom: 10px;">Due Date</div>
           <div class="row form-group">
             <div class="col-sm-4">
               <input type="date" name="dueDate" />
             </div>
           </div>
           <!-- original above here -->
-
+          
           <div class="form-group" style="margin-top: 50px">
             <label for="exampleFormControlTextarea1" style="margin-bottom: 10px"
               >Task Description</label
