@@ -1,8 +1,12 @@
 .after-nav{
-    padding-top: 100px;
+    padding-top: 80px;
 }
 
 #account_circle_icon{
     color: white;
     font-size: 30px;
+}
+
+#submission_box{
+    padding: 15px 20px;
 }

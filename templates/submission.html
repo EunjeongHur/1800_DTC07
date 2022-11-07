@@ -50,7 +50,23 @@
 
     <!-- the body of our page goes here -->
     <div id="logged_in" class="container after-nav">
-
+      <a href="task.html" style="color: black;"><span class="material-icons">
+        arrow_back</span></a>
+      <div class="mx-5 my-2">
+        <div id="description-goes-here">
+          <h3 class="task-title">Task Title</h3>
+          <p class="task-date">Task due date</p>
+          <p class="task-time-left">Time left</p>
+          <p>Score</p>
+          <p class="task-text">Description</p>
+          <div id="submission_box" class="mb-3 border border-3">
+            <label for="formFileMultiple" class="form-label">Submit</label>
+            <input class="form-control" type="file" id="formFileMultiple" multiple>
+            <textarea class="form-control my-3" id="submission_textarea" rows="3" placeholder="Comments"></textarea>
+            <button class="btn btn-primary my-3 justify-content-end">Submit</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- our own footer goes here -->
@@ -64,5 +80,6 @@
     <script src="../scripts/firebaseAPI_TEAM07.js"></script>
     <script src="../scripts/skeleton.js"></script>
     <script src="../scripts/log_in.js"></script>
+    <script src="../scripts/submission.js"></script>
   </body>
 </html>

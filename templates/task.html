@@ -51,20 +51,20 @@
     <!-- the body of your page goes here -->
     <!-- stuff -->
     <div id="logged_in" class="after-nav">
-        <div class="container" style="margin-top: 50px;">
-            <h1>Tasks</h1>
+        <div class="container">
+            <h1 class="mx-3 my-2">Tasks</h1>
             <div class="container">
                 <div id="tasks-go-here" class="row row-cols-auto"></div>
             </div>
         </div>
 
         <template id="taskCardTemplate">
-            <div class="card px-2 py-2 mx-2 my-2 " style="width: 20rem;">
-                <div class="card-body px-2 py-2 mx-2 my-2 ">
+            <div class="card px-2 py-2 mx-auto my-2 " style="width: 20rem;">
+                <div class="card-body">
                     <h5 class="card-title">Task title</h5>
                     <p class="card-date">Task due date</p>
                     <p class="card-text">Task type</p>
-                    <a class="btn btn-primary card-href">Submit</a>
+                    <a class="btn btn-primary card-href" href="submission.html">Submit</a>
                 </div>
             </div>
         </template>
