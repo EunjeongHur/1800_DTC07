@@ -8,7 +8,7 @@ function taskHandler(){
     // Get the task type 
     //////////////////
     // Original Way //
-    //////////////////s
+    //////////////////
     // const task_type = form.querySelector('input[name=options]:checked').id;
 
     const task_type = document.getElementById('task_options').selectedOptions[0].value;
@@ -33,7 +33,6 @@ function taskHandler(){
         description: task_description
     }).then(function(docRef) {
         console.log("New task is added to firestore");
-        console.log("ID: ", docRef.id);
         window.location.assign("main.html");
     }).catch(function(error){
         console.log("Error occurs: " + error);
