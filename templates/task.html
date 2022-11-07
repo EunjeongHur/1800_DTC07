@@ -53,8 +53,13 @@
     <div id="logged_in" class="after-nav">
         <div class="container">
             <h1 class="mx-3 my-2">Tasks</h1>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2 w-75 mx-auto" type="search" placeholder="Type a task title" aria-label="Search" id="search">
+            </form>
             <div class="container">
-                <div id="tasks-go-here" class="row row-cols-auto"></div>
+                <div class="card-deck">
+                    <div id="tasks-go-here" class="row row-cols-auto"></div>
+                </div>
             </div>
         </div>
 
@@ -64,7 +69,7 @@
                     <h5 class="card-title">Task title</h5>
                     <p class="card-date">Task due date</p>
                     <p class="card-text">Task type</p>
-                    <a class="btn btn-primary card-href" href="submission.html">Submit</a>
+                    <a class="btn btn-primary card-href" href="submission.html"><span class="card-id" style="display: none">Task ID</span>Submit</a>
                 </div>
             </div>
         </template>
@@ -79,6 +84,7 @@
     <script src="../scripts/skeleton.js"></script>
     <script src="../scripts/log_in.js"></script>
     <script src="../scripts/task.js"></script>
+    <script src="../scripts/submission.js"></script>
 
 </body>
 
