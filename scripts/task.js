@@ -27,8 +27,17 @@ function displayTask(collection) {
 
 $("body").on("click", ".card-id", function() {
     var docid = $(this).attr('docid')
-    window.location.href="submission.html?docid="+docid
+    setTaskData(docid);
+    window.location.href="submission.html";
+
+    // Using URL 
+        // window.location.href="submission.html?docid="+docid
+    
 })
+
+function setTaskData(id){
+    localStorage.setItem('taskID', id)
+}
 
 
 $('#search').keyup(function (){

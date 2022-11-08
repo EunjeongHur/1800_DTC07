@@ -1,10 +1,10 @@
-function viewDetails(docRef) {
-    const url = window.location.search;
-    const urlParams = new URLSearchParams(url);
-    const docid = urlParams.get('docid');
-    console.log(docid);
-    // $("#task-title").html(docid);
-    db.collection(docRef).doc(docid)
+function viewDetails(id) {
+    // Using URL 
+        // const url = window.location.search;
+        // const urlParams = new URLSearchParams(url);
+        // const docid = urlParams.get('docid');
+
+    db.collection('tasks').doc(id)
         .onSnapshot(doc => {
             let task_title = doc.data().title;
             let task_date = doc.data().date;
@@ -17,7 +17,8 @@ function viewDetails(docRef) {
 }
 
 function setup(){
-    viewDetails('tasks')
+    let taskID = localStorage.getItem("taskID");
+    viewDetails(taskID)
 }
 
 $(document).ready(setup);
