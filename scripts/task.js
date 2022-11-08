@@ -1,5 +1,7 @@
 function displayTask(collection) {
-    let cardTemplate = document.getElementById("taskCardTemplate");
+    var current_location = $(location).attr('href')
+    if (current_location.endsWith("task.html")){
+        let cardTemplate = document.getElementById("taskCardTemplate");
 
     db.collection(collection).get()
         .then(snap => {
@@ -14,12 +16,20 @@ function displayTask(collection) {
                 newcard.querySelector('.card-title').innerHTML = title;
                 newcard.querySelector('.card-date').innerHTML = `Due ${date}`
                 newcard.querySelector('.card-text').innerHTML = description;
-                newcard.querySelector('.card-id').innerHTML = docid;
+                newcard.querySelector('.card-id').setAttribute("docid", docid);
 
                 document.getElementById(collection + "-go-here").appendChild(newcard);
             })
         })
+    }
 }
+
+
+$("body").on("click", ".card-id", function() {
+    var docid = $(this).attr('docid')
+    window.location.href="submission.html?docid="+docid
+})
+
 
 $('#search').keyup(function (){
     $('.card').removeClass('d-none');
@@ -27,10 +37,12 @@ $('#search').keyup(function (){
     $('.card-deck').find('.card .card-body h5:not(:contains("'+card_title+'"))').parent().parent().addClass('d-none');
 })
 
+
 firebase.auth().onAuthStateChanged((user) => {
     // Check if a user is signed in:
     if (user) {
         displayTask("tasks");
+        // $(".card-id").click(findCard('tasks'));
     } else {
         document.getElementById("logged_in").style.display="none";
         window.location.href="index.html"
