@@ -20,5 +20,4 @@ function setup(){
     viewDetails('tasks')
 }
 
-//$(".card-title").eq(1).html();
 $(document).ready(setup);
