@@ -17,7 +17,7 @@ function taskHandler(){
     const due_date = form.querySelector('input[name=dueDate]').value;
     
     // Get the task description
-    const task_description = form.querySelector('textarea[id=exampleFormControlTextarea1]').value;
+    let task_description = form.querySelector('textarea[id=exampleFormControlTextarea1]').value;
 
     console.log(task_title);
     console.log(task_type);
@@ -26,17 +26,24 @@ function taskHandler(){
 
     var taskRef = db.collection("tasks");
 
-    taskRef.add({
-        title: task_title,
-        type: task_type,
-        date: due_date,
-        description: task_description
-    }).then(function(docRef) {
-        console.log("New task is added to firestore");
-        window.location.assign("main.html");
-    }).catch(function(error){
-        console.log("Error occurs: " + error);
-    })
+    if (task_title != "" && task_type != "" && due_date != "") {
+        if (task_description == ""){
+            task_description = "No description"
+        }
+        taskRef.add({
+            title: task_title,
+            type: task_type,
+            date: due_date,
+            description: task_description
+        }).then(function(docRef) {
+            console.log("New task is added to firestore");
+            window.location.assign("main.html");
+        }).catch(function(error){
+            console.log("Error occurs: " + error);
+        })
+    } else {
+        alert("Data entry is required")
+    }
 }
 
 function setup(){
