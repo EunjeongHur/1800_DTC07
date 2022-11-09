@@ -37,7 +37,7 @@ function taskHandler(){
             description: task_description
         }).then(function(docRef) {
             console.log("New task is added to firestore");
-            window.location.assign("main.html");
+            window.location.assign("confirmation.html");
         }).catch(function(error){
             console.log("Error occurs: " + error);
         })

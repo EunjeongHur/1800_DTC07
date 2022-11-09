@@ -26,6 +26,10 @@ function viewDetails(id) {
 
             if(time_left < 0){
                 $("#task-time-left").html(`${-time_left} days late`);
+                $("#task-time-left").css({"color": "red", "text-decoration": "underline"})
+            } else if(time_left < 3){
+                $("#task-time-left").html(`${time_left} days left`);
+                $("#task-time-left").css("color", "red")
             } else {
                 $("#task-time-left").html(`${time_left} days left`);
             }
