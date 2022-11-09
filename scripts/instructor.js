@@ -46,8 +46,14 @@ function taskHandler(){
     }
 }
 
+function cancelBtnHandler(){
+    alert("Posting is cancelled");
+    window.location.assign("main.html");
+}
+
 function setup(){
     $("#submit_form").click(taskHandler);
+    $("#cancle_post").click(cancelBtnHandler);
 }
 
 $(document).ready(setup);
