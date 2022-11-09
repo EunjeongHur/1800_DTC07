@@ -19,5 +19,5 @@ function logged_out() {
 }
 
 function setting() {
-    console.log("setting")
+    window.location.href="profile.html"
 }

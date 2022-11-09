@@ -7,6 +7,11 @@
     font-size: 30px;
 }
 
+#account_circle_in_profile{
+    font-size: 150px;
+    color: black;
+}
+
 #submission_box{
     padding: 15px 20px;
 }
