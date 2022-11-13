@@ -12,6 +12,7 @@ function displayTask(collection) {
 
     db.collection(collection).get()
         .then(snap => {
+            var counter = 0
             snap.forEach(doc => {
                 var docid = doc.id;
                 var course_num = doc.data().course_num;
@@ -23,19 +24,22 @@ function displayTask(collection) {
 
                 let formatted_task_date = date.replaceAll('-', '');
                 var time_left = Number(formatted_task_date) - Number(newdate);
-
+                
                 if (time_left < -5){
                     // do something
                 } else {
                     newcard.querySelector('.card-title').innerHTML = title;
-                    newcard.querySelector('.card-course-num').innerHTML = `${course_num} - `;
+                    newcard.querySelector('.card-course-num').innerHTML = `${course_num} -`;
                     newcard.querySelector('.card-type').innerHTML = type
                     let only_date = date.replaceAll('-', '/').slice(5)
                     newcard.querySelector('.card-onlydate').innerHTML = ` (${only_date})`
                     newcard.querySelector('.card-date').innerHTML = `Due ${date}`
                     newcard.querySelector('.card-text').innerHTML = description;
                     newcard.querySelector('.card-id').setAttribute("docid", docid);
+                    newcard.querySelector('#collapseCard').id = `collapseCard${counter}`
+                    newcard.querySelector('#collapseCardtarget').setAttribute("data-bs-target",`#collapseCard${counter}`);
                     document.getElementById(collection + "-go-here").appendChild(newcard);
+                    counter += 1
                 }
             })
         })
