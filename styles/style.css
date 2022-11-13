@@ -2,6 +2,26 @@
     padding-top: 80px;
 }
 
+.outside_card{
+    padding: 0px;
+}
+
+.outside_card:focus{
+    border: none;
+    border-radius: 0%;
+    box-shadow: none;
+}
+
+.inside_card{
+    padding-left: 10px;
+}
+
+#search{
+    width: 24rem;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
 #account_circle_icon{
     color: white;
     font-size: 30px;
@@ -14,4 +34,12 @@
 
 #submission_box{
     padding: 15px 20px;
+}
+
+#icon_open_in_full{
+    color: grey;
+    flex-grow: 1;
+    align-self: center;
+    text-align: right;
+    font-size: 20px;
 }
