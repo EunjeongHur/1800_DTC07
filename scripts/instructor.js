@@ -2,6 +2,9 @@ function taskHandler(){
     // Get the submitted form
     var form = document.forms.instructorform
 
+    // Get the Course Number
+    const course_number = form.querySelector('input[name=course_number]').value;
+
     // Get the task title
     const task_title = form.querySelector('input[name=taskTitle]').value;
     
@@ -10,7 +13,6 @@ function taskHandler(){
     // Original Way //
     //////////////////
     // const task_type = form.querySelector('input[name=options]:checked').id;
-
     const task_type = document.getElementById('task_options').selectedOptions[0].value;
     
     //Get the due date
@@ -31,6 +33,7 @@ function taskHandler(){
             task_description = "No description"
         }
         taskRef.add({
+            course_num: course_number,
             title: task_title,
             type: task_type,
             date: due_date,
