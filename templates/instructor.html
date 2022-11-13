@@ -52,36 +52,9 @@
 			rel="stylesheet"
 			href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
 		/>
-
-<<<<<<< HEAD
-		<!-------------------------------------------->
-		<!-- Other libraries and styles of your own -->
-		<!-------------------------------------------->
-		<link
-			href="https://fonts.googleapis.com/icon?family=Material+Icons"
-			rel="stylesheet"
-		/>
-		<link rel="stylesheet" href="../styles/style.css" />
-	</head>
-	<body>
-		<nav id="navbarPlaceholder"></nav>
-		<div id="logged_in" class="after-nav">
-			<!-- <div class="container">
-=======
-    <!-------------------------------------------->
-    <!-- Other libraries and styles of your own -->
-    <!-------------------------------------------->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../styles/style.css" />
-  </head>
-  <body>
+ <!-- our own navbar goes here -->
     <nav id="navbarPlaceholder"></nav>
-    <div id="logged_in" class="after-nav">
-      <!-- <div class="container">
->>>>>>> 31dcb06 (delete green buttons in favor of dropdown)
+  <!--
       <form action="" id="instructorForm" style="width: 80%; margin: auto">
         <fieldest>
           <legend>Upload A Task for Students</legend>
@@ -158,10 +131,12 @@
           </div>
         </fieldest>
       </form>
-    </div> -->
-<<<<<<< HEAD
+    </div> 
+  -->
+
 			<!-- the body of your page goes here -->
 			<!-- stuff -->
+      <!--
 			<div class="container">
 				<form
 					action=""
@@ -211,10 +186,11 @@
 					<div style="margin-top: 30px; margin-bottom: 10px">
 						Task Type:
 					</div>
+        -->
 					<!-- cut start -->
-=======
       <!-- the body of your page goes here -->
       <!-- stuff -->
+      
       <div class="container">
         <form
           action=""
@@ -222,6 +198,8 @@
           id="instructorForm"
           style="width: 80%; margin: auto"
         >
+
+
           <legend style="margin-top: 20px">Create task for Students</legend>
           <div class="form-group">
             <label for="taskTitle" style="margin-top: 18px; margin-bottom: 8px"
@@ -236,8 +214,7 @@
           </div>
           <div style="margin-top: 30px; margin-bottom: 10px">Task Type:</div>
           <!-- cut start -->
->>>>>>> 31dcb06 (delete green buttons in favor of dropdown)
-
+        
 					<!-- <div
             class="btn-group btn-group-toggle"
             data-toggle="buttons"
@@ -245,12 +222,12 @@
             DO NOT USE
           > -->
           <!-- Made by Sam (?) -->
-<<<<<<< HEAD
+
           <!-- <div style="margin-top: 0px; margin-bottom: 50px">
-=======
-          <!--
+
+       
            <div style="margin-top: 0px; margin-bottom: 50px">
->>>>>>> 31dcb06 (delete green buttons in favor of dropdown)
+
             <input
               type="radio"
               class="btn-check"
@@ -294,19 +271,19 @@
               id="Exam"
               autocomplete="off"
             />
-<<<<<<< HEAD
+
             <label class="btn btn-outline-success me-2 px-5 my-2" for="Exam">Exam</label> -->
             
             <!-- cut end -->
             <!-- original down below -->
             <!-- <label class="btn btn-primary-outline">
-=======
+
             <label class="btn btn-outline-success me-2 my-2" for="Exam">Exam</label>
             -->
           <!-- cut end -->
           <!-- original down below -->
           <!-- <label class="btn btn-primary-outline">
->>>>>>> 31dcb06 (delete green buttons in favor of dropdown)
+
               <input
                 type="radio"
                 name="options"
@@ -337,7 +314,7 @@
               Exam
             </label>
           </div> -->
-<<<<<<< HEAD
+
 					<div class="form-group">
 						<select class="form-control" id="task_options">
 							<option>Assignment</option>
@@ -356,23 +333,7 @@
 						</div>
 					</div>
 					<!-- original above here -->
-=======
-          <div class="form-group">
-            <select class="form-control" id="task_options">
-              <option>Assignment</option>
-              <option>Discussion</option>
-              <option>Lab</option>
-              <option>Quiz</option>
-              <option>Exam</option>
-            </select>
-          </div>
-          <div style="margin-top: 30px; margin-bottom: 10px">Due Date</div>
-          <div class="row form-group">
-            <div class="col-sm-4">
-              <input type="date" name="dueDate" />
-            </div>
-          </div>
-          <!-- original above here -->
+
 
           <div class="form-group" style="margin-top: 50px">
             <label for="exampleFormControlTextarea1" style="margin-bottom: 10px"
@@ -400,40 +361,10 @@
     </div>
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>
->>>>>>> 31dcb06 (delete green buttons in favor of dropdown)
 
-					<div class="form-group" style="margin-top: 50px">
-						<label
-							for="exampleFormControlTextarea1"
-							style="margin-bottom: 10px"
-							>Task Description (Option)</label
-						>
-						<textarea
-							class="form-control"
-							id="exampleFormControlTextarea1"
-							rows="9"
-						></textarea>
-					</div>
+					
 				</form>
-				<div
-					class="inputBox d-flex justify-content-end"
-					style="width: 80%; margin: auto; margin-top: 18px"
-				>
-					<button
-						type="submit"
-						class="btn btn-secondary"
-						id="cancle_post"
-					>
-						Cancel
-					</button>
-					<button
-						type="submit"
-						class="btn btn-primary mx-2"
-						id="submit_form"
-					>
-						Submit
-					</button>
-				</div>
+				
 			</div>
 		</div>
 		<!-- our own footer goes here-->
@@ -443,6 +374,7 @@
 		<!-- Your own JavaScript functions go here    -->
 		<!---------------------------------------------->
 		<script src="../scripts/firebaseAPI_TEAM07.js"></script>
+
 		<script src="../scripts/skeleton.js"></script>
 		<script src="../scripts/log_in.js"></script>
 		<script src="../scripts/instructor.js"></script>
