@@ -2,6 +2,13 @@ function displayTask(collection) {
     var current_location = $(location).attr('href')
     if (current_location.endsWith("task.html")){
         let cardTemplate = document.getElementById("taskCardTemplate");
+        // Calculate how many days left
+        let today_date = new Date();
+        let year = today_date.getFullYear();
+        let month = String(today_date.getMonth() + 1).padStart(2, "0");
+        let date = String(today_date.getDate()).padStart(2, "0");
+        var newdate = year + month + date
+        
 
     db.collection(collection).get()
         .then(snap => {
@@ -13,12 +20,18 @@ function displayTask(collection) {
                 var description = doc.data().description;
                 let newcard = cardTemplate.content.cloneNode(true);
 
-                newcard.querySelector('.card-title').innerHTML = title;
-                newcard.querySelector('.card-date').innerHTML = `Due ${date}`
-                newcard.querySelector('.card-text').innerHTML = description;
-                newcard.querySelector('.card-id').setAttribute("docid", docid);
+                let formatted_task_date = date.replaceAll('-', '');
+                var time_left = Number(formatted_task_date) - Number(newdate);
 
-                document.getElementById(collection + "-go-here").appendChild(newcard);
+                if (time_left < -5){
+                    // do something
+                } else {
+                    newcard.querySelector('.card-title').innerHTML = title;
+                    newcard.querySelector('.card-date').innerHTML = `Due ${date}`
+                    newcard.querySelector('.card-text').innerHTML = description;
+                    newcard.querySelector('.card-id').setAttribute("docid", docid);
+                    document.getElementById(collection + "-go-here").appendChild(newcard);
+                }
             })
         })
     }

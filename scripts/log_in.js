@@ -9,7 +9,6 @@ firebase.auth().onAuthStateChanged((user) => {
 });
 
 function logged_out() {
-    console.log("clicked")
     const auth = firebase.auth();
     auth.signOut().then(() => {
         console.log("User logged out.")

@@ -1,41 +1,42 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <div class="btn-group">
-            <span type="button" class="material-icons btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="account_circle_icon">account_circle</span>
-            <div class="dropdown-menu dorpdown-menu-right">
-                <button id="setting" class="dropdown-item" type="button" onclick="setting()">Settings</button>
-                <button id="logged_out" class="dropdown-item" type="button" onclick="logged_out()">Log out</button>
-            </div>
-        </div>
-        <a class="navbar-brand text-light" href="main.html">
-            <img src="../images/logo.png" height="36">
-            LearnStream</a>
         <button class="navbar-toggler bg-warning" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <a class="navbar-brand text-light" href="main.html">
+            <img src="../images/logo.png" height="36">
+            LearnStream</a>
+        <div class="btn-group dropstart">
+            <span type="button" class="material-icons btn" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="account_circle_icon">account_circle</span>
+            <div class="dropdown-menu" style="margin-top: 40px; margin-right: -40px;">
+                <button id="setting" class="dropdown-item" type="button" onclick="setting()">Settings</button>
+                <button id="logged_out" class="dropdown-item" type="button" onclick="logged_out()">Log out</button>
+                <button id="logged_in_nav" class="dropdown-item d-none" type="button" onclick="logged_out()">Log in</button>
+            </div>
+        </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Features</a>
+                <li id="nav_for_student" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Students</a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><a class="dropdown-item" href="task.html">View Task</a></li>
-                        <li><a class="dropdown-item" href="instructor.html">Post Task</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#">View Submission</a></li>
+                        <li><a class="dropdown-item" href="#">View Grades</a>
+                        </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Students</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Instructors</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="
-                    #">Grades</a>
+                <li id="nav_for_instructor" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Instructors</a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="instructor.html">Post Task</a></li>
+                        <li><a class="dropdown-item" href="#">Post Grade</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>
+        
+        
     </div>
 </nav>
