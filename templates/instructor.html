@@ -52,6 +52,12 @@
 			rel="stylesheet"
 			href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
 		/>
+    
+    <!-------------------------------------------->
+    <!-- Other libraries and styles of your own -->
+    <!-------------------------------------------->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
  <!-- our own navbar goes here -->
     <nav id="navbarPlaceholder"></nav>
   <!--
@@ -201,6 +207,29 @@
 
 
           <legend style="margin-top: 80px">Create task for Students</legend>
+          <div class="form-group">
+						<label
+							for="taskTitle"
+							style="margin-top: 18px; margin-bottom: 8px"
+							>Course Number</label
+						>
+						<input
+							class="form-control"
+              name="course_number"
+							list="datalistOptions"
+							id="exampleDataList"
+							placeholder="Type to search..."
+						/>
+						<datalist id="datalistOptions">
+							<option value="COMP 1800">
+							<option value="COMP 1510">
+							<option value="COMP 1537">
+							<option value="COMP 1712">
+							<option value="COMP 1100">
+							<option value="COMP 1113">
+              <option value="COMP 1116">
+						</datalist>
+					</div>
           <div class="form-group">
             <label for="taskTitle" style="margin-top: 18px; margin-bottom: 8px"
               >Task Title</label
