@@ -29,10 +29,10 @@ function displayTask(collection) {
                     // do something
                 } else {
                     newcard.querySelector('.card-title').innerHTML = title;
-                    newcard.querySelector('.card-course-num').innerHTML = `${course_num} -`;
+                    newcard.querySelector('.card-course-num').innerHTML = `${course_num} -&nbsp;`;
                     newcard.querySelector('.card-type').innerHTML = type
                     let only_date = date.replaceAll('-', '/').slice(5)
-                    newcard.querySelector('.card-onlydate').innerHTML = ` (${only_date})`
+                    newcard.querySelector('.card-onlydate').innerHTML = `&nbsp;(${only_date})`
                     newcard.querySelector('.card-date').innerHTML = `Due ${date}`
                     newcard.querySelector('.card-text').innerHTML = description;
                     newcard.querySelector('.card-id').setAttribute("docid", docid);
@@ -70,10 +70,15 @@ $('#search').keyup(function (){
 
 
 firebase.auth().onAuthStateChanged((user) => {
+    $("#success-alert").hide();
     // Check if a user is signed in:
     if (user) {
+        $("#name-goes-here").text(user.displayName);
         displayTask("tasks");
         // $(".card-id").click(findCard('tasks'));
+        $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+            $("#success-alert").slideUp(500);
+        })
     } else {
         document.getElementById("logged_in").style.display="none";
         window.location.href="index.html"
