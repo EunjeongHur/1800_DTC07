@@ -21,7 +21,7 @@ function displayTask(collection) {
         var newdate = year + month + date
         
 
-    db.collection(collection).get()
+    db.collection(collection).orderBy('date').get()
         .then(snap => {
             var counter = 0
             snap.forEach(doc => {
