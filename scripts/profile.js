@@ -12,6 +12,7 @@ function populateInfo(){
                     let userSchool = userDoc.data().school;
                     let userEmail = userDoc.data().email;
                     let userType = userDoc.data().type;
+                    let userNum = userDoc.data().student_num;
 
                     if (userName != null){
                         document.getElementById("nameInput").value = userName;
@@ -21,6 +22,9 @@ function populateInfo(){
                     }
                     if (userEmail != null){
                         document.getElementById("emailInput").value = userEmail;
+                    }
+                    if (userNum != null){
+                        document.getElementById("stuNumInput").value = userNum;
                     }
                     if (userType != null){
                         $(`select option[value='${userType}']`).attr("selected", "selected");
