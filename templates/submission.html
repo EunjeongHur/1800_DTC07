@@ -47,6 +47,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
     <link
       type="text/css"
       rel="stylesheet"
@@ -91,7 +92,7 @@
               class="form-control"
               type="file"
               id="formFileMultiple"
-              multiple
+              accept=".pdf"
             />
             <textarea
               class="form-control my-3"
@@ -101,7 +102,7 @@
             ></textarea>
             <div class="d-flex justify-content-end">
               <button class="btn btn-secondary my-3">Cancel</button>
-              <button class="btn btn-primary my-3 mx-2">Submit</button>
+              <button id=uploadFile class="btn btn-primary my-3 mx-2">Submit</button>
               <!--
               <p id="uploading"></p> 
               <progress value="0" max="100" id="progress"></progress>
