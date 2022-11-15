@@ -1,3 +1,14 @@
+function getMonthName(input){
+    var input_date = input.slice(-2);
+    var input_month = input.slice(0, 2);
+    console.log(input_month, input_date)
+    const date = new Date();
+    date.setMonth(input_month - 1 );
+
+
+    return `${date.toLocaleString([], { month: 'short'})}-${input_date}`;
+}
+
 function displayTask(collection) {
     var current_location = $(location).attr('href')
     if (current_location.endsWith("task.html")){
@@ -32,7 +43,8 @@ function displayTask(collection) {
                     newcard.querySelector('.card-course-num').innerHTML = `${course_num} -&nbsp;`;
                     newcard.querySelector('.card-type').innerHTML = type
                     let only_date = date.replaceAll('-', '/').slice(5)
-                    newcard.querySelector('.card-onlydate').innerHTML = `&nbsp;(${only_date})`
+                    let translated_date = getMonthName(only_date)
+                    newcard.querySelector('.card-onlydate').innerHTML = `&nbsp;(${translated_date})`
                     newcard.querySelector('.card-date').innerHTML = `Due ${date}`
                     newcard.querySelector('.card-text').innerHTML = description;
                     newcard.querySelector('.card-id').setAttribute("docid", docid);
