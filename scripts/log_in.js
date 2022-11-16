@@ -13,7 +13,7 @@ function logged_out() {
     auth.signOut().then(() => {
         console.log("User logged out.")
     }).catch((error) => {
-        console.log("An error happend: " + error)
+        console.log("An error happened: " + error)
     });
 }
 
