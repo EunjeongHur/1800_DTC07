@@ -52,6 +52,10 @@ function displayWork(collection){
 }
 
 
+// SEND GRADE INPUT and TASK INFO (student, course, task title to firestore)
+
+
+
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         displayWork("submissions");
