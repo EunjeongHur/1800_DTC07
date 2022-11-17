@@ -36,58 +36,64 @@ function viewDetails(id) {
         })
 }
 
-// function uploadFileHandler(){
+function uploadFileHandler(){
     
-//     firebase.auth().onAuthStateChanged(function(user){
-//         if (user){
-//             var fileInput = document.getElementById("formFileMultiple");
-//             var image = document.getElementById("image-goes-here")
-//             var file = fileInput.files[0];
-//             var blob = URL.createObjectURL(file);
+    firebase.auth().onAuthStateChanged(function(user){
+        if (user){
+            var fileInput = document.getElementById("formFileMultiple");
+            fileInput.addEventListener('change', function(e) {
+                var file = e.target.files[0];
+                console.log(file)
+                var storageRef = firebase.storage().ref("submissions/" + user.uid + ".pdf");
+            
+                storageRef.put(file)
+                    .then(function(){
+	                    storageRef.getDownloadURL()
+                            .then(function (url) { // Get URL of the uploaded file
+                                console.log(url); // Save the URL into users collection
+                                db.collection("users").doc(user.uid).update({
+                                "profile-pic": url
+                            })
+                        })
+                    })
+            })
+            // var file = fileInput.files[0];
+            // console.log(file)
+            // console.log(file.name)
 
-//             // image.src = blob
-//             // console.log(file)
-//             // console.log(blob);
-//             const pickedfile = fileInput.files[0];  // file that user picked
-//             image.src = URL.createObjectURL(pickedfile)
+            // // let demo = {
+            // //     "name": `${file.name}`,
+            // //     "lastModified": `${file.lastModified}`,
+            // //     "size": `${file.size}`,
+            // //     "type": `${file.type}`
+            // // }
+
+            // // console.log(demo);
+            // var storageRef = firebase.storage().ref("submissions/" + user.uid + ".pdf");
+            // storageRef.put(file)
+            //     .then(function(){
+	        //         storageRef.getDownloadURL()
+            //             .then(function (url) { // Get URL of the uploaded file
+            //                 console.log(url); // Save the URL into users collection
+            //                 db.collection("users").doc(user.uid).update({
+            //                     "profile-pic": url
+            //                 })
+            //             })
+            //     })
 
             
-//             // var pickedfile = file
-//             console.log(file)
-
-//             console.log(file.name)
-//             let demo = {
-//                 "name": `${file.name}`,
-//                 "lastModified": `${file.lastModified}`,
-//                 "size": `${file.size}`,
-//                 "type": `${file.type}`
-//             }
-
-//             console.log(demo);
-//             var storageRef = firebase.storage().ref("images/" + user.uid + ".png");
-//             storageRef.put(demo)
-//                 .then(function(){
-// 	                storageRef.getDownloadURL()
-//                         .then(function (url) { // Get URL of the uploaded file
-//                             console.log(url); // Save the URL into users collection
-//                             db.collection("users").doc(user.uid).update({
-//                                 "profile-pic": url
-//                             })
-//                         })
-//                 })
-            
-//             // storageRef.put(file)
-//             //     .then(function(){
-//             //         console.log("hhh")
-//             //         console.log('Uploaded to Cloud Storage');
-//             //     })
-//             //     .catch(function(err){
-//             //         console.log(err)
-//             //         console.log("error occurs:" + err);
-//             //     })
-//             }
-//         }) 
-// }
+            // storageRef.put(file)
+            //     .then(function(){
+            //         console.log("hhh")
+            //         console.log('Uploaded to Cloud Storage');
+            //     })
+            //     .catch(function(err){
+            //         console.log(err)
+            //         console.log("error occurs:" + err);
+            //     })
+            }
+        }) 
+}
                 
             // storageRef.getDownloadURL()
             //     .then(function(url){
