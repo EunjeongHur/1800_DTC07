@@ -51,7 +51,11 @@ function displayWork(collection){
 
 
 
-async function getUserData(uid){
+async // SEND GRADE INPUT and TASK INFO (student, course, task title to firestore)
+
+
+
+function getUserData(uid){
 
     var student_info = new Object(); 
     // let cardTemplate = document.getElementById("workCardTemplate");
