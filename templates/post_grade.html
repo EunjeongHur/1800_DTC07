@@ -47,6 +47,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
     <link
       type="text/css"
       rel="stylesheet"
@@ -82,26 +83,11 @@
         <div class="card mx-auto my-2" style="width: 80%; background-color: lightgray">
           <div class="card-body px-1">
             <button id="workCardtarget" class="btn text-start outside_card d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#workCard" aria-expanded="false" aria-controls="collapseExample" style="width: 100%">
-              <span class="card-class-name">Class Name</span>
-              <span class="card-student-num">Student Num</span>
+              <span class="card-task-name">Task Name</span>
               <span id="icon_open_in_full" class="material-icons">open_in_full</span>
             </button>
           </div>
-          <div class="collapse" id="workCard">
-            <div class="inside_card">
-              <h6 class="card-student-name">Student Name</h6>
-              <h6 class="card-submitted-work">Submitted File</h6>
-              <p class="card-description"></p>
-              <div
-                class="d-flex justify-content-end"
-                style="padding-bottom: 20px"
-              >
-                <label for="inputGrade" class="visually-hidden">Grade</label>
-                <input type="text" class="form-control" id="inputGrade" placeholder="Grade">
-                <button class="btn btn-primary card-id">Post</button>
-              </div>
-            </div>
-          </div>
+  
         </div>
       </template>
       <!-- Grade Input Form -->
