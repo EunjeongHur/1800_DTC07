@@ -60,190 +60,59 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Kalam:wght@700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="../styles/style.css">
- <!-- our own navbar goes here -->
+    <!-- our own navbar goes here -->
     <nav id="navbarPlaceholder"></nav>
-  <!--
-      <form action="" id="instructorForm" style="width: 80%; margin: auto">
-        <fieldest>
-          <legend>Upload A Task for Students</legend>
-          <div class="form-group">
-            <label for="taskTitle" style="margin-top: 18px; margin-bottom: 18px"
-              >Task Title</label
-            >
-            <input
-              type="text"
-              name="taskTitle"
-              id="taskTitle"
-              class="form-control"
-            />
-          </div>
-          <div style="margin-top: 18px">Task Type:</div>
-          <div
-            class="btn-group btn-group-toggle"
-            data-toggle="buttons"
-            style="margin-top: 8px"
+  
+    <!-- the body of your page goes here -->
+    <!-- stuff -->
+    <div class="container after-nav">
+      <a href="task.html" style="color: black"
+        ><span class="material-icons">arrow_back</span></a
+      >
+      <form
+        action=""
+        name="instructorform"
+        id="instructorForm"
+        style="width: 80%; margin: auto"
+      >
+
+        <h1>Create Task for Students</h1> 
+        <!-- <legend style="margin-top: 80px">Create task for Students</legend> -->
+        <div class="form-group">
+          <label
+            for="taskTitle"
+            style="margin-top: 18px; margin-bottom: 8px"
+            >Course Number</label
           >
-            <label class="btn btn-primary-outline">
-              <input
-                type="radio"
-                name="options"
-                id="Assignment"
-                autocomplete="off"
-              />
-              Assignment
-            </label>
-            <label class="btn btn-primary-outline">
-              <input type="radio" name="options" id="Discussion" autocomplete="off" />
-              Discussion
-            </label>
-            <label class="btn btn-primary-outline">
-              <input type="radio" name="options" id="Lab" autocomplete="off" />
-              Lab
-            </label>
-            <label class="btn btn-primary-outline">
-              <input type="radio" name="options" id="Quiz" autocomplete="off" />
-              Quiz
-            </label>
-            <label class="btn btn-primary-outline">
-              <input type="radio" name="options" id="Exam" autocomplete="off" />
-              Exam
-            </label>
-          </div>
-          <div style="margin-top: 18px">Due Date</div>
-          <div class="row form-group">
-            <label for="date" class="col-sm-1 col-form-label"></label>
-            <div class="col-sm-4">
-              <div class="input-group date" id="datepicker">
-                <input type="text" class="form-control" />
-                <span class="input-group-append">
-                  <span class="input-group-text bg-white d-block">
-                    <i class="fa fa-calendar"></i>
-                  </span>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="form-group" style="margin-top: 18px">
-            <label for="exampleFormControlTextarea1" style="margin-bottom: 10px"
-              >Task Description</label
-            >
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="9"
-            ></textarea>
-          </div>
-          <div class="inputBox" style="margin-top: 18px">
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="submit" class="btn btn-primary"><a href="main.html" style="color: white; text-decoration: none;">Cancel</a></button>
-          </div>
-        </fieldest>
-      </form>
-    </div> 
-  -->
-
-			<!-- the body of your page goes here -->
-			<!-- stuff -->
-      <!--
-			<div class="container">
-				<form
-					action=""
-					name="instructorform"
-					id="instructorForm"
-					style="width: 80%; margin: auto"
-				>
-					<legend style="margin-top: 20px">
-						Create task for Students
-					</legend>
-					<div class="form-group">
-						<label
-							for="taskTitle"
-							style="margin-top: 18px; margin-bottom: 8px"
-							>Course Number</label
-						>
-						<input
-							class="form-control"
-              name="course_number"
-							list="datalistOptions"
-							id="exampleDataList"
-							placeholder="Type to search..."
-						/>
-						<datalist id="datalistOptions">
-							<option value="COMP 1800">
-							<option value="COMP 1510">
-							<option value="COMP 1537">
-							<option value="COMP 1712">
-							<option value="COMP 1100">
-							<option value="COMP 1113">
-              <option value="COMP 1116">
-						</datalist>
-					</div>
-					<div class="form-group">
-						<label
-							for="taskTitle"
-							style="margin-top: 18px; margin-bottom: 8px"
-							>Task Title</label
-						>
-						<input
-							type="text"
-							name="taskTitle"
-							id="taskTitle"
-							class="form-control"
-						/>
-					</div>
-					<div style="margin-top: 30px; margin-bottom: 10px">
-						Task Type:
-					</div>
-        -->
-					<!-- cut start -->
-      <!-- the body of your page goes here -->
-      <!-- stuff -->
-      
-      <div class="container">
-        <form
-          action=""
-          name="instructorform"
-          id="instructorForm"
-          style="width: 80%; margin: auto"
-        >
-
-
-          <legend style="margin-top: 80px">Create task for Students</legend>
-          <div class="form-group">
-						<label
-							for="taskTitle"
-							style="margin-top: 18px; margin-bottom: 8px"
-							>Course Number</label
-						>
-						<input
-							class="form-control"
-              name="course_number"
-							list="datalistOptions"
-							id="exampleDataList"
-							placeholder="Type to search..."
-						/>
-						<datalist id="datalistOptions">
-							<option value="COMP 1800">
-							<option value="COMP 1510">
-							<option value="COMP 1537">
-							<option value="COMP 1712">
-							<option value="COMP 1100">
-							<option value="COMP 1113">
-              <option value="COMP 1116">
-						</datalist>
-					</div>
-          <div class="form-group">
-            <label for="taskTitle" style="margin-top: 18px; margin-bottom: 8px"
-              >Task Title</label
-            >
-            <input
-              type="text"
-              name="taskTitle"
-              id="taskTitle"
-              class="form-control"
-            />
-          </div>
-          <div style="margin-top: 30px; margin-bottom: 10px">Task Type:</div>
+          <input
+            class="form-control"
+            name="course_number"
+            list="datalistOptions"
+            id="exampleDataList"
+            placeholder="Type to search..."
+          />
+          <datalist id="datalistOptions">
+            <option value="COMP 1800">
+            <option value="COMP 1510">
+            <option value="COMP 1537">
+            <option value="COMP 1712">
+            <option value="COMP 1100">
+            <option value="COMP 1113">
+            <option value="COMP 1116">
+          </datalist>
+        </div>
+        <div class="form-group">
+          <label for="taskTitle" style="margin-top: 18px; margin-bottom: 8px"
+            >Task Title</label
+          >
+          <input
+            type="text"
+            name="taskTitle"
+            id="taskTitle"
+            class="form-control"
+          />
+        </div>
+        <div style="margin-top: 30px; margin-bottom: 10px">Task Type:</div>
           <!-- cut start -->
         
 					<!-- <div
@@ -346,60 +215,61 @@
             </label>
           </div> -->
 
-					<div class="form-group">
-						<select class="form-control" id="task_options">
-							<option>Assignment</option>
-							<option>Discussion</option>
-							<option>Lab</option>
-							<option>Quiz</option>
-							<option>Exam</option>
-						</select>
-					</div>
-					<div style="margin-top: 30px; margin-bottom: 10px">
-						Due Date
-					</div>
-					<div class="row form-group">
-						<div class="col-sm-4">
-							<input type="date" name="dueDate" />
-						</div>
-					</div>
-					<!-- original above here -->
-
-
-          <div class="form-group" style="margin-top: 50px">
-            <label for="exampleFormControlTextarea1" style="margin-bottom: 10px"
-              >Task Description (Option)</label
-            >
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="9"
-            ></textarea>
-          </div>
-        </form>
-        <div
-          class="inputBox d-flex justify-content-end"
-          style="width: 80%; margin: auto; margin-top: 18px"
-        >
-          <button style="background-color: #CDD5DC; border-color: #CDD5DC; color: #202122;" type="submit" class="btn btn-secondary" id="cancel_post">
-            Cancel
-          </button>
-          <button style="background-color: #1D3557; border-color: #1D3557;" type="submit" class="btn btn-primary mx-2" id="submit_form">
-            Submit
-          </button>
+        <div class="form-group">
+          <select class="form-control" id="task_options">
+            <option>Assignment</option>
+            <option>Discussion</option>
+            <option>Lab</option>
+            <option>Quiz</option>
+            <option>Exam</option>
+          </select>
         </div>
+        <div style="margin-top: 30px; margin-bottom: 10px">
+          Due Date
+        </div>
+        <div class="row form-group">
+          <div class="col-sm-4">
+            <input type="date" name="dueDate" />
+          </div>
+        </div>
+				<!-- original above here -->
+        <div class="form-group">
+          <label for="taskScore" style="margin-top: 30px;"
+            >Task Score</label
+          >
+          <input
+            type="number"
+            name="taskScore"
+            id="taskScore"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group" style="margin-top: 40px">
+          <label for="exampleFormControlTextarea1" style="margin-bottom: 10px"
+            >Task Description (Option)</label
+          >
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="9"
+          ></textarea>
+        </div>
+      </form>
+      <div
+        class="inputBox d-flex justify-content-end"
+        style="width: 80%; margin: auto; margin-top: 18px"
+      >
+        <button type="submit" class="btn submission_cancel_btn" id="cancel_post">
+          Cancel
+        </button>
+        <button type="submit" class="btn mx-2 submission_submit_btn" id="submit_form">
+          Submit
+        </button>
       </div>
     </div>
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>
-
-					
-				</form>
-				
-			</div>
-		</div>
-		<!-- our own footer goes here-->
-		<nav id="footerPlaceholder"></nav>
 
 		<!---------------------------------------------->
 		<!-- Your own JavaScript functions go here    -->

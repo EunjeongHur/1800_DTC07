@@ -17,18 +17,21 @@ function taskHandler(){
     
     //Get the due date
     const due_date = form.querySelector('input[name=dueDate]').value;
-    
+
+    const task_score = document.getElementById('taskScore').value;
+
     // Get the task description
     let task_description = form.querySelector('textarea[id=exampleFormControlTextarea1]').value;
 
     console.log(task_title);
     console.log(task_type);
     console.log(due_date);
+    console.log(task_score)
     console.log(task_description);
 
     var taskRef = db.collection("tasks");
 
-    if (task_title != "" && task_type != "" && due_date != "") {
+    if (task_title != "" && task_type != "" && due_date != "" && task_score != "") {
         if (task_description == ""){
             task_description = "No description"
         }
@@ -37,7 +40,8 @@ function taskHandler(){
             title: task_title,
             type: task_type,
             date: due_date,
-            description: task_description
+            description: task_description,
+            task_score: task_score
         }).then(function(docRef) {
             console.log("New task is added to firestore");
             window.location.assign("confirmation.html");

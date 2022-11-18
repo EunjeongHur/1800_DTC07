@@ -9,6 +9,8 @@ function viewDetails(id) {
             let task_title = doc.data().title;
             let task_date = doc.data().date;
             let task_description = doc.data().description;
+            let task_score = doc.data().task_score;
+            console.log(task_score);
 
             // Calculate how many days left
             let today_date = new Date();
@@ -20,18 +22,19 @@ function viewDetails(id) {
 
             var time_left = Number(formatted_task_date) - Number(newdate);
             
-            $("#task-title").html(task_title);
-            $("#task-date").html(`Due ${task_date}`);
-            $("#task-text").html(task_description);
+            $("#task-title").html(`<h1>${task_title}</h1><br>`);
+            $("#task-date").html(`<b>Due: </b> ${task_date}`);
+            $("#task-score").html(`<b>Score</b>: - / ${task_score}`)
+            $("#task-text").html(`<b>Description:</b><br>${task_description}`);
 
             if(time_left < 0){
-                $("#task-time-left").html(`${-time_left} days late`);
+                $("#task-time-left").html(`<b>Days left: </b>${-time_left}`);
                 $("#task-time-left").css({"color": "red", "text-decoration": "underline"})
             } else if(time_left < 3){
-                $("#task-time-left").html(`${time_left} days left`);
+                $("#task-time-left").html(`<b>Days left: </b>${time_left}`);
                 $("#task-time-left").css("color", "red")
             } else {
-                $("#task-time-left").html(`${time_left} days left`);
+                $("#task-time-left").html(`<b>Days left: </b>${time_left}`);
             }
         })
 }

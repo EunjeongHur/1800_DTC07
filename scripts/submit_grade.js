@@ -32,13 +32,25 @@ function populateSubmissions(){
         })
 }
 
-
+function getInputGrade(){
+    console.log('df')
+    $('#inputGrade').keyup(function(){
+        console.log('asdf')
+        if ($(this).val() > 100){
+            console.log('hi')
+          alert("No numbers above 100");
+          $(this).val('100');
+        }
+      });
+}
+getInputGrade()
 
 
 function setup(){
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             populateSubmissions()
+
         } else {
             document.getElementById("logged_in").style.display="none";
             window.location.href="index.html"
