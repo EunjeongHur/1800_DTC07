@@ -51,14 +51,14 @@ function taskHandler(){
 
 function cancelBtnHandler(){
     alert("Posting is cancelled");
-    window.location.assign("main.html");
+    window.location.assign("post_grade.html");
 }
 
 function setup(){
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             $("#submit_form").click(taskHandler);
-            $("#cancle_post").click(cancelBtnHandler);
+            $("#cancel_post").click(cancelBtnHandler);
         } else {
             document.getElementById("logged_in").style.display="none";
             window.location.href="index.html"
