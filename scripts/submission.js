@@ -36,64 +36,66 @@ function viewDetails(id) {
         })
 }
 
-function uploadFileHandler(){
+
+
+// function uploadFileHandler(){
     
-    firebase.auth().onAuthStateChanged(function(user){
-        if (user){
-            var fileInput = document.getElementById("formFileMultiple");
-            fileInput.addEventListener('change', function(e) {
-                var file = e.target.files[0];
-                console.log(file)
-                var storageRef = firebase.storage().ref("submissions/" + user.uid + ".pdf");
+//     firebase.auth().onAuthStateChanged(function(user){
+//         if (user){
+//             var fileInput = document.getElementById("formFileMultiple");
+//             fileInput.addEventListener('change', function(e) {
+//                 var file = e.target.files[0];
+//                 console.log(file)
+//                 var storageRef = firebase.storage().ref("submissions/" + user.uid + ".pdf");
             
-                storageRef.put(file)
-                    .then(function(){
-	                    storageRef.getDownloadURL()
-                            .then(function (url) { // Get URL of the uploaded file
-                                console.log(url); // Save the URL into users collection
-                                db.collection("users").doc(user.uid).update({
-                                "profile-pic": url
-                            })
-                        })
-                    })
-            })
-            // var file = fileInput.files[0];
-            // console.log(file)
-            // console.log(file.name)
+//                 storageRef.put(file)
+//                     .then(function(){
+// 	                    storageRef.getDownloadURL()
+//                             .then(function (url) { // Get URL of the uploaded file
+//                                 console.log(url); // Save the URL into users collection
+//                                 db.collection("users").doc(user.uid).update({
+//                                 "profile-pic": url
+//                             })
+//                         })
+//                     })
+//             })
+//             // var file = fileInput.files[0];
+//             // console.log(file)
+//             // console.log(file.name)
 
-            // // let demo = {
-            // //     "name": `${file.name}`,
-            // //     "lastModified": `${file.lastModified}`,
-            // //     "size": `${file.size}`,
-            // //     "type": `${file.type}`
-            // // }
+//             // // let demo = {
+//             // //     "name": `${file.name}`,
+//             // //     "lastModified": `${file.lastModified}`,
+//             // //     "size": `${file.size}`,
+//             // //     "type": `${file.type}`
+//             // // }
 
-            // // console.log(demo);
-            // var storageRef = firebase.storage().ref("submissions/" + user.uid + ".pdf");
-            // storageRef.put(file)
-            //     .then(function(){
-	        //         storageRef.getDownloadURL()
-            //             .then(function (url) { // Get URL of the uploaded file
-            //                 console.log(url); // Save the URL into users collection
-            //                 db.collection("users").doc(user.uid).update({
-            //                     "profile-pic": url
-            //                 })
-            //             })
-            //     })
+//             // // console.log(demo);
+//             // var storageRef = firebase.storage().ref("submissions/" + user.uid + ".pdf");
+//             // storageRef.put(file)
+//             //     .then(function(){
+// 	        //         storageRef.getDownloadURL()
+//             //             .then(function (url) { // Get URL of the uploaded file
+//             //                 console.log(url); // Save the URL into users collection
+//             //                 db.collection("users").doc(user.uid).update({
+//             //                     "profile-pic": url
+//             //                 })
+//             //             })
+//             //     })
 
             
-            // storageRef.put(file)
-            //     .then(function(){
-            //         console.log("hhh")
-            //         console.log('Uploaded to Cloud Storage');
-            //     })
-            //     .catch(function(err){
-            //         console.log(err)
-            //         console.log("error occurs:" + err);
-            //     })
-            }
-        }) 
-}
+//             // storageRef.put(file)
+//             //     .then(function(){
+//             //         console.log("hhh")
+//             //         console.log('Uploaded to Cloud Storage');
+//             //     })
+//             //     .catch(function(err){
+//             //         console.log(err)
+//             //         console.log("error occurs:" + err);
+//             //     })
+//             }
+//         }) 
+// }
                 
             // storageRef.getDownloadURL()
             //     .then(function(url){
@@ -133,10 +135,44 @@ function uploadFileHandler(){
             // window.location.href="task.html"
 
 
+var TaskFile;
+
+function chooseFileListener(){
+    const fileInput = document.getElementById("submit-file-input");
+    console.log(fileInput)
+
+    fileInput.addEventListener('change', function(e){
+        TaskFile = e.target.files[0];
+        var blob = URL.createObjectURL(TaskFile)
+    })
+    console.log(TaskFile)
+}
+
+chooseFileListener()
+
+
+function submitTaskFile() {
+    firebase.auth().onAuthStateChanged(function(user) {
+        var storageRef = storage.ref("works/" + user.uid + ".jpg");
+        console.log(TaskFile)
+        storageRef.put(TaskFile)
+            .then(function() {
+                console.log("Uploaded to Cloud Storage.");
+
+                storageRef.getDownloadURL()
+                    .then(function (url) {
+                        console.log("Got the download URL.");
+                        console.log(url);
+                        // db.collection("submissions").doc(
+                    })
+            })
+    }
+)}
+
 function setup(){
     let taskID = localStorage.getItem("taskID");
     viewDetails(taskID)
-    $("#uploadFile").click(uploadFileHandler);
+    // $("#uploadFile").click(uploadFileHandler);
 }
 
 $(document).ready(setup);

@@ -85,14 +85,14 @@
           <p>Score</p>
           <p id="task-text"></p>
           <div id="submission_box" class="mb-3 border border-3">
-            <label for="formFileMultiple" class="form-label"
+            <label for="submit-file-input" class="form-label"
               >Submission Box</label
             >
             <input
               class="form-control"
               type="file"
-              id="formFileMultiple"
-              accept=".pdf"
+              id="submit-file-input"
+              accept=".jpg"
             />
             <textarea
               class="form-control my-3"
@@ -102,7 +102,7 @@
             ></textarea>
             <div class="d-flex justify-content-end">
               <button class="btn btn-secondary my-3">Cancel</button>
-              <button id=uploadFile class="btn btn-primary my-3 mx-2">Submit</button>
+              <button class="btn btn-primary my-3 mx-2" onclick="submitTaskFile()">Submit</button>
               <!--
               <p id="uploading"></p> 
               <progress value="0" max="100" id="progress"></progress>
