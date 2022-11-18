@@ -75,12 +75,19 @@
                 <h6 class="card-submitted-work">Submitted File</h6>
                 <p class="card-description"></p>
                 <div
-                  class="d-flex justify-content-between"
+                  class="d-flex justify-content-start"
                   style="padding-bottom: 20px"
                 >
                   <label for="inputGrade" class="visually-hidden">Grade</label>
-                  <input type="number" class="form-control" id="inputGrade" placeholder="Grade" min="1" max="100">
-                  <button class="btn submission_submit_btn card-id">Post</button>
+                  <span><b>Score:&nbsp;</b></span>
+                  <input type="number" class="form-control inputGrade" placeholder="Grade" min="0">
+                  <span class="task_score"></span>
+                  
+                </div>
+                <div
+                class="d-flex justify-content-end" style="margin-bottom: -20px; margin-top: -10px;"
+                >
+                  <button class="btn shadow-none submission_submit_btn card-id">Post</button>
                 </div>
               </div>
             </div>

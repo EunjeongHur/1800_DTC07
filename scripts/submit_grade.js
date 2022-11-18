@@ -6,8 +6,8 @@ function populateSubmissions(){
     db.collection("tasks").doc(taskId)
         .onSnapshot(doc => {
             let submissions = doc.data().submission;
+            let task_score = doc.data().task_score;
             
-            console.log(submissions)
             if (submissions != null){
                 var counter = 0
                 for (i of submissions){
@@ -16,6 +16,8 @@ function populateSubmissions(){
                     newcard.querySelector('.card-student-name').innerHTML = `<b>Name: </b>${i.student_name}`
                     newcard.querySelector('.card-student-num').innerHTML = i.student_num
                     newcard.querySelector('.card-submitted-work').innerHTML = `<b>File: </b>${i.files}`
+                    newcard.querySelector('.task_score').innerHTML = `&nbsp;/ ${task_score}`
+                    newcard.querySelector('.inputGrade').setAttribute('max', task_score)
 
                     if (i.comment != null){
                         newcard.querySelector('.card-description').innerHTML = `<b>Comments: </b>${i.comment}`
@@ -27,23 +29,23 @@ function populateSubmissions(){
                 }
                
             } else {
-                $("#task-goes-here").html("<h3>No submissiosn yet.</h3>")
+                $("#task-goes-here").html(`<h1>No submissiosn yet.</h1>`)
             }
         })
 }
 
-function getInputGrade(){
-    console.log('df')
-    $('#inputGrade').keyup(function(){
-        console.log('asdf')
-        if ($(this).val() > 100){
-            console.log('hi')
-          alert("No numbers above 100");
-          $(this).val('100');
-        }
-      });
-}
-getInputGrade()
+// function getInputGrade(){
+//     console.log('df')
+//     $('#inputGrade').keyup(function(){
+//         console.log('asdf')
+//         if ($(this).val() > 100){
+//             console.log('hi')
+//           alert("No numbers above 100");
+//           $(this).val('100');
+//         }
+//       });
+// }
+// getInputGrade()
 
 
 function setup(){
