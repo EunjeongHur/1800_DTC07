@@ -1,6 +1,12 @@
 body{
     background-color: #F3F5F9;
 }
+
+h1{
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+
 .after-nav{
     padding-top: 80px;
 }
@@ -34,6 +40,15 @@ body{
     margin-top: -3px;
     margin-left: 220px;
     text-align: right;
+}
+
+#menu_icon{
+    color: #F3F5F9;
+    font-size: 1.2rem;
+}
+
+#menu_icon:focus{
+    box-shadow: none;
 }
 
 #search{

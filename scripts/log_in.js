@@ -12,6 +12,7 @@ function logged_out() {
     const auth = firebase.auth();
     auth.signOut().then(() => {
         console.log("User logged out.")
+        window.location.href="index.html"
     }).catch((error) => {
         console.log("An error happened: " + error)
     });

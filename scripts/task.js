@@ -1,10 +1,8 @@
 function getMonthName(input){
     var input_date = input.slice(-2);
     var input_month = input.slice(0, 2);
-    console.log(input_month, input_date)
     const date = new Date();
     date.setMonth(input_month - 1 );
-
 
     return `${date.toLocaleString([], { month: 'short'})}-${input_date}`;
 }
@@ -87,7 +85,6 @@ firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         $("#name-goes-here").text(user.displayName);
         displayTask("tasks");
-        // $(".card-id").click(findCard('tasks'));
         $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
             $("#success-alert").slideUp(500);
         })
