@@ -70,17 +70,17 @@
               <span id="icon_open_in_full" class="material-icons">open_in_full</span>
             </button>
             <div class="collapse" id="taskCard">
-              <div class="inside_card">
+              <div class="inside_card my-4">
                 <h6 class="card-student-name">Student Name</h6>
                 <h6 class="card-submitted-work">Submitted File</h6>
                 <p class="card-description"></p>
                 <div
-                  class="d-flex justify-content-end"
+                  class="d-flex justify-content-between"
                   style="padding-bottom: 20px"
                 >
                   <label for="inputGrade" class="visually-hidden">Grade</label>
-                  <input type="text" class="form-control" id="inputGrade" placeholder="Grade">
-                  <button class="btn btn-primary card-id" style="background-color: #1d3557; border-color: #1d3557;">Post</button>
+                  <input type="number" class="form-control" id="inputGrade" placeholder="Grade" min="1" max="100">
+                  <button class="btn submission_submit_btn card-id">Post</button>
                 </div>
               </div>
             </div>
