@@ -28,8 +28,8 @@ function viewDetails(id) {
             $("#task-text").html(`<b>Description:</b><br>${task_description}`);
 
             if(time_left < 0){
-                $("#task-time-left").html(`<b>Days left: </b>${-time_left}`);
-                $("#task-time-left").css({"color": "red", "text-decoration": "underline"})
+                $("#task-time-left").html(`<b>Days past: </b>${-time_left}`);
+                $("#task-time-left").css({"text-decoration": "3px underline #ffc300", "text-underline-offset": "5px"})
             } else if(time_left < 3){
                 $("#task-time-left").html(`<b>Days left: </b>${time_left}`);
                 $("#task-time-left").css("color", "red")

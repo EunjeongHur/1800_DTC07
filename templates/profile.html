@@ -61,7 +61,10 @@
 			href="https://fonts.googleapis.com/icon?family=Material+Icons"
 			rel="stylesheet"
 		/>
-		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Kalam:wght@700&display=swap" rel="stylesheet"> 
+		<link
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Kalam:wght@700&display=swap"
+			rel="stylesheet"
+		/>
 		<link rel="stylesheet" href="../styles/style.css" />
 	</head>
 
@@ -75,14 +78,20 @@
 
 		<!-- the body of our page goes here -->
 		<div id="logged_in" class="container after-nav">
-      <div class="text-center">
-        <span class="material-icons mx-auto d-block" id="account_circle_in_profile">account_circle</span>
-      </div>
+			<div class="text-center">
+				<span
+					class="material-icons mx-auto d-block"
+					id="account_circle_in_profile"
+					>account_circle</span
+				>
+			</div>
 			<h1 class="text-center">User Profile</h1>
 			<form>
 				<fieldset class="mb-3" id="personalInfoFields" disabled>
 					<div class="form-group">
-						<label style="margin-top: 10px; margin-bottom: 10px">Name</label>
+						<label style="margin-top: 10px; margin-bottom: 10px"
+							>Name</label
+						>
 						<input
 							type="text"
 							id="nameInput"
@@ -91,7 +100,9 @@
 						/>
 					</div>
 					<div class="form-group">
-						<label style="margin-top: 10px; margin-bottom: 10px">School</label>
+						<label style="margin-top: 10px; margin-bottom: 10px"
+							>School</label
+						>
 						<input
 							type="text"
 							id="schoolInput"
@@ -100,7 +111,9 @@
 						/>
 					</div>
 					<div class="form-group">
-						<label style="margin-top: 10px; margin-bottom: 10px">Student Number</label>
+						<label style="margin-top: 10px; margin-bottom: 10px"
+							>Student Number</label
+						>
 						<input
 							type="text"
 							id="stuNumInput"
@@ -108,8 +121,10 @@
 							placeholder="Enter your student number"
 						/>
 					</div>
-          <div class="form-group">
-						<label style="margin-top: 10px; margin-bottom: 10px">Email</label>
+					<div class="form-group">
+						<label style="margin-top: 10px; margin-bottom: 10px"
+							>Email</label
+						>
 						<input
 							type="text"
 							id="emailInput"
@@ -117,18 +132,24 @@
 							placeholder="Enter your email"
 						/>
 					</div>
-          <div class="form-group">
-            <label style="margin-top: 10px; margin-bottom: 10px;">Type</label>
-            <select class="form-control form-select" aria-label="User Type" id="user_type">
-              <option value="Student">Student</option>
-              <option value="Instructor">Instructor</option>
-            </select>
-          </div>
+					<div class="form-group">
+						<label style="margin-top: 10px; margin-bottom: 10px"
+							>Type</label
+						>
+						<select
+							class="form-control form-select"
+							aria-label="User Type"
+							id="user_type"
+						>
+							<option value="Student">Student</option>
+							<option value="Instructor">Instructor</option>
+						</select>
+					</div>
 				</fieldset>
-				<div class="d-flex justify-content-end mt-5">
+				<div class="d-flex justify-content-end">
 					<button
 						type="button"
-						class="btn btn-secondary"
+						class="btn shadow-none my-3 edit_btn"
 						onclick="editUserInfo()"
 					>
 						Edit
@@ -136,7 +157,7 @@
 					<span style="width: 10px"></span>
 					<button
 						type="button"
-						class="btn btn-info"
+						class="btn shadow-none my-3 mx-2 submission_submit_btn"
 						onclick="saveUserInfo()"
 					>
 						Save
@@ -156,6 +177,6 @@
 		<script src="../scripts/firebaseAPI_TEAM07.js"></script>
 		<script src="../scripts/skeleton.js"></script>
 		<script src="../scripts/log_in.js"></script>
-    <script src="../scripts/profile.js"></script>
+		<script src="../scripts/profile.js"></script>
 	</body>
 </html>
