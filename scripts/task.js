@@ -36,6 +36,7 @@ function displayTask(collection) {
                 
                 if (time_left < -5){
                     // do something
+                    
                 } else {
                     newcard.querySelector('.card-title').innerHTML = title;
                     newcard.querySelector('.card-course-num').innerHTML = `${course_num} -&nbsp;`;

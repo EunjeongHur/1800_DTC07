@@ -18,6 +18,8 @@ function populateSubmissions(){
                     newcard.querySelector('.card-submitted-work').innerHTML = `<b>File: </b>${i.files}`
                     newcard.querySelector('.task_score').innerHTML = `&nbsp;/ ${task_score}`
                     newcard.querySelector('.inputGrade').setAttribute('max', task_score)
+                    newcard.querySelector('.submission_submit_btn').setAttribute('counter', counter)
+                    newcard.querySelector('.inputGrade').setAttribute('id', `grade${counter}`)
 
                     if (i.comment != null){
                         newcard.querySelector('.card-description').innerHTML = `<b>Comments: </b>${i.comment}`
@@ -34,25 +36,23 @@ function populateSubmissions(){
         })
 }
 
-// function getInputGrade(){
-//     console.log('df')
-//     $('#inputGrade').keyup(function(){
-//         console.log('asdf')
-//         if ($(this).val() > 100){
-//             console.log('hi')
-//           alert("No numbers above 100");
-//           $(this).val('100');
-//         }
-//       });
-// }
-// getInputGrade()
+
+$("body").on("click", ".submission_submit_btn", function() {
+    var counter = $(this).attr('counter')
+    var thisgrade = $(`#grade${counter}`).val();
+    let params = new URL(window.location.href);
+    let taskId = params.searchParams.get("taskid");
+
+    db.collection("tasks").doc(taskId).where("submissions.${counter}", "==", `submissions.${counter}`).update({
+        files: 'hello.pdf'
+    })
+})
 
 
 function setup(){
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             populateSubmissions()
-
         } else {
             document.getElementById("logged_in").style.display="none";
             window.location.href="index.html"
