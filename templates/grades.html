@@ -27,13 +27,15 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>  
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Other libraries go here -->
 
     <!-- Link to styles of your own -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Kalam:wght@700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="../styles/style.css">
   </head>
 
@@ -44,41 +46,40 @@
     <!-- our own navbar goes here -->
   <nav id="navbarPlaceholder"></nav>
 
-  
+  <div id="logged_in" class="container after-nav">
+    <h2>Grades</h2>
+      <p></p>            
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Submitted</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+          </tr>
+          <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+          </tr>
+          <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
 
-<div class="container">
-<h2>Grades</h2>
-  <p></p>            
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Course</th>
-        <th>Submitted</th>
-        <th>Grade</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
 
-</body>
-</html>
+  </body>
+  </html>
 
     <!-- Link to scripts of your own -->
     <script src="../scripts/firebaseAPI_TEAM07.js"></script>

@@ -9,6 +9,8 @@ function viewDetails(id) {
             let task_title = doc.data().title;
             let task_date = doc.data().date;
             let task_description = doc.data().description;
+            let task_score = doc.data().task_score;
+            console.log(task_score);
 
             // Calculate how many days left
             let today_date = new Date();
@@ -20,61 +22,70 @@ function viewDetails(id) {
 
             var time_left = Number(formatted_task_date) - Number(newdate);
             
-            $("#task-title").html(task_title);
-            $("#task-date").html(`Due ${task_date}`);
-            $("#task-text").html(task_description);
+            $("#task-title").html(`<h1>${task_title}</h1><br>`);
+            $("#task-date").html(`<b>Due: </b> ${task_date}`);
+            $("#task-score").html(`<b>Score</b>: - / ${task_score}`)
+            $("#task-text").html(`<b>Description:</b><br>${task_description}`);
 
             if(time_left < 0){
-                $("#task-time-left").html(`${-time_left} days late`);
+                $("#task-time-left").html(`<b>Days left: </b>${-time_left}`);
                 $("#task-time-left").css({"color": "red", "text-decoration": "underline"})
             } else if(time_left < 3){
-                $("#task-time-left").html(`${time_left} days left`);
+                $("#task-time-left").html(`<b>Days left: </b>${time_left}`);
                 $("#task-time-left").css("color", "red")
             } else {
-                $("#task-time-left").html(`${time_left} days left`);
+                $("#task-time-left").html(`<b>Days left: </b>${time_left}`);
             }
         })
 }
+
+
 
 // function uploadFileHandler(){
     
 //     firebase.auth().onAuthStateChanged(function(user){
 //         if (user){
 //             var fileInput = document.getElementById("formFileMultiple");
-//             var image = document.getElementById("image-goes-here")
-//             var file = fileInput.files[0];
-//             var blob = URL.createObjectURL(file);
-
-//             // image.src = blob
-//             // console.log(file)
-//             // console.log(blob);
-//             const pickedfile = fileInput.files[0];  // file that user picked
-//             image.src = URL.createObjectURL(pickedfile)
-
+//             fileInput.addEventListener('change', function(e) {
+//                 var file = e.target.files[0];
+//                 console.log(file)
+//                 var storageRef = firebase.storage().ref("submissions/" + user.uid + ".pdf");
             
-//             // var pickedfile = file
-//             console.log(file)
-
-//             console.log(file.name)
-//             let demo = {
-//                 "name": `${file.name}`,
-//                 "lastModified": `${file.lastModified}`,
-//                 "size": `${file.size}`,
-//                 "type": `${file.type}`
-//             }
-
-//             console.log(demo);
-//             var storageRef = firebase.storage().ref("images/" + user.uid + ".png");
-//             storageRef.put(demo)
-//                 .then(function(){
-// 	                storageRef.getDownloadURL()
-//                         .then(function (url) { // Get URL of the uploaded file
-//                             console.log(url); // Save the URL into users collection
-//                             db.collection("users").doc(user.uid).update({
+//                 storageRef.put(file)
+//                     .then(function(){
+// 	                    storageRef.getDownloadURL()
+//                             .then(function (url) { // Get URL of the uploaded file
+//                                 console.log(url); // Save the URL into users collection
+//                                 db.collection("users").doc(user.uid).update({
 //                                 "profile-pic": url
 //                             })
 //                         })
-//                 })
+//                     })
+//             })
+//             // var file = fileInput.files[0];
+//             // console.log(file)
+//             // console.log(file.name)
+
+//             // // let demo = {
+//             // //     "name": `${file.name}`,
+//             // //     "lastModified": `${file.lastModified}`,
+//             // //     "size": `${file.size}`,
+//             // //     "type": `${file.type}`
+//             // // }
+
+//             // // console.log(demo);
+//             // var storageRef = firebase.storage().ref("submissions/" + user.uid + ".pdf");
+//             // storageRef.put(file)
+//             //     .then(function(){
+// 	        //         storageRef.getDownloadURL()
+//             //             .then(function (url) { // Get URL of the uploaded file
+//             //                 console.log(url); // Save the URL into users collection
+//             //                 db.collection("users").doc(user.uid).update({
+//             //                     "profile-pic": url
+//             //                 })
+//             //             })
+//             //     })
+
             
 //             // storageRef.put(file)
 //             //     .then(function(){
@@ -127,10 +138,44 @@ function viewDetails(id) {
             // window.location.href="task.html"
 
 
+var TaskFile;
+
+function chooseFileListener(){
+    const fileInput = document.getElementById("submit-file-input");
+    console.log(fileInput)
+
+    fileInput.addEventListener('change', function(e){
+        TaskFile = e.target.files[0];
+        var blob = URL.createObjectURL(TaskFile)
+    })
+    console.log(TaskFile)
+}
+
+chooseFileListener()
+
+
+function submitTaskFile() {
+    firebase.auth().onAuthStateChanged(function(user) {
+        var storageRef = storage.ref("works/" + user.uid + ".jpg");
+        console.log(TaskFile)
+        storageRef.put(TaskFile)
+            .then(function() {
+                console.log("Uploaded to Cloud Storage.");
+
+                storageRef.getDownloadURL()
+                    .then(function (url) {
+                        console.log("Got the download URL.");
+                        console.log(url);
+                        // db.collection("submissions").doc(
+                    })
+            })
+    }
+)}
+
 function setup(){
     let taskID = localStorage.getItem("taskID");
     viewDetails(taskID)
-    $("#uploadFile").click(uploadFileHandler);
+    // $("#uploadFile").click(uploadFileHandler);
 }
 
 $(document).ready(setup);

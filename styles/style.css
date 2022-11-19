@@ -1,3 +1,12 @@
+body{
+    background-color: #F3F5F9;
+}
+
+h1{
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+
 .after-nav{
     padding-top: 80px;
 }
@@ -33,6 +42,34 @@
     text-align: right;
 }
 
+.submission_cancel_btn{
+    transition-duration: 0.3s;
+    background-color: #CDD5DC; 
+    border-color: #CDD5DC; 
+    color: #202122;
+}
+
+.submission_submit_btn{
+    transition-duration: 0.3s;
+    color: #fefefe;
+    background-color: #1D3557; 
+    border-color: #1D3557;
+}
+
+.submission_submit_btn:hover, .submission_cancel_btn:hover{
+    background-color: #fefefe;
+}
+
+
+#menu_icon{
+    color: #F3F5F9;
+    font-size: 1.2rem;
+}
+
+#menu_icon:focus{
+    box-shadow: none;
+}
+
 #search{
     width: 24rem;
     margin-bottom: 15px;
@@ -53,14 +90,15 @@
     padding: 15px 20px;
 }
 
-#icon_open_in_full{
-    color: grey;
+#icon_arrow_forward, #icon_open_in_full{
+    color: #999999;
     flex-grow: 1;
     align-self: center;
     text-align: right;
     font-size: 20px;
 }
 
+<<<<<<< HEAD
 /* Dropdown Button */
 .dropbtn {
     background-color: #303030;
@@ -102,3 +140,8 @@
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #3e8e41;}
   
+=======
+#inputGrade{
+    width: 75%;
+}
+>>>>>>> 98a27145c091352e76b54d501df7e85759b71587
