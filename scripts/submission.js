@@ -156,7 +156,8 @@ chooseFileListener()
 
 function submitTaskFile() {
     firebase.auth().onAuthStateChanged(function(user) {
-        var storageRef = storage.ref("works/" + user.uid + ".jpg");
+        // var storageRef = storage.ref("works/" + user.uid + ".jpg");
+        var storageRef = storage.ref("works/" + user.uid + ".pdf");
         console.log(TaskFile)
         storageRef.put(TaskFile)
             .then(function() {
