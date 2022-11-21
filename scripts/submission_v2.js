@@ -108,10 +108,17 @@ function cancelBtnHandler(){
 
 function setup(){
        let taskID = localStorage.getItem("taskID");
-
-       
+              
        viewDetails(taskID)
 	   // submitWorkHandler(taskID)
+    //    firebase.auth().onAuthStateChanged((user) => {
+    //     if (user) {
+    //         $("#submitWork").click(submitWorkHandler(taskID));
+    //         $("#cancel_post").click(cancelBtnHandler);
+    //     } else {
+    //         document.getElementById("logged_in").style.display="none";
+    //         window.location.href="index.html"
+    //     }
 }
 
 $(document).ready(setup);
