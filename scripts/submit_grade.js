@@ -7,7 +7,7 @@ function populateSubmissions(){
         .onSnapshot(doc => {
             let submissions = doc.data().submission;
             let task_score = doc.data().task_score;
-            
+            console.log(submissions[0])
             if (submissions != null){
                 var counter = 0
                 for (i of submissions){
@@ -31,7 +31,7 @@ function populateSubmissions(){
                 }
                
             } else {
-                $("#task-goes-here").html(`<h1>No submissiosn yet.</h1>`)
+                $("#task-goes-here").html(`<h1 class="mx-auto py-2">No submissions yet.</h1>`)
             }
         })
 }
@@ -43,9 +43,13 @@ $("body").on("click", ".submission_submit_btn", function() {
     let params = new URL(window.location.href);
     let taskId = params.searchParams.get("taskid");
 
-    db.collection("tasks").doc(taskId).where("submissions.${counter}", "==", `submissions.${counter}`).update({
-        files: 'hello.pdf'
-    })
+    // db.collection("tasks").doc(taskId).where("submissions.${counter}", "==", `submissions.${counter}`).update({
+    //     files: 'hello.pdf'
+    // })
+    console.log(counter)
+    console.log(thisgrade)
+    console.log(taskId)
+    db.collection("tasks").doc(taskId).up
 })
 
 

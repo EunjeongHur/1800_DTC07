@@ -32,7 +32,7 @@ function viewDetails(id) {
                 $("#task-time-left").css({"text-decoration": "3px underline #ffc300", "text-underline-offset": "5px"})
             } else if(time_left < 3){
                 $("#task-time-left").html(`<b>Days left: </b>${time_left}`);
-                $("#task-time-left").css("color", "red")
+                $("#task-time-left").css({"text-decoration": "3px underline #ffc300", "text-underline-offset": "5px"})
             } else {
                 $("#task-time-left").html(`<b>Days left: </b>${time_left}`);
             }
