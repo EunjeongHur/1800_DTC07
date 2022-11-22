@@ -5,6 +5,9 @@ function taskHandler(){
     // Get the Course Number
     const course_number = form.querySelector('input[name=course_number]').value;
 
+    // Get the set number
+    const school_set = form.querySelector('input[name=school_set]').value;
+
     // Get the task title
     const task_title = form.querySelector('input[name=taskTitle]').value;
     
@@ -28,10 +31,11 @@ function taskHandler(){
     console.log(due_date);
     console.log(task_score)
     console.log(task_description);
+    console.log(school_set);
 
     var taskRef = db.collection("tasks");
 
-    if (task_title != "" && task_type != "" && due_date != "" && task_score != "") {
+    if (course_number != "" && school_set != "" && task_title != "" && task_type != "" && due_date != "" && task_score != "") {
         if (task_description == ""){
             task_description = "No description"
         }
@@ -41,7 +45,8 @@ function taskHandler(){
             type: task_type,
             date: due_date,
             description: task_description,
-            task_score: task_score
+            task_score: task_score,
+            school_set: school_set
         }).then(function(docRef) {
             console.log("New task is added to firestore");
             window.location.assign("confirmation.html");
