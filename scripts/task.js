@@ -76,11 +76,8 @@ function displayTask(uid) {
 								newcard.querySelector(".card-text").innerHTML =
 									description;
 								newcard
-									.querySelector(".card")
+									.querySelector(".card-id")
 									.setAttribute("docid", docid);
-								newcard
-									.querySelector(".card-body")
-									.setAttribute("taskid", docid);
 								newcard.querySelector(
 									"#collapseCard"
 								).id = `collapseCard${counter}`;
@@ -116,6 +113,7 @@ $("body").on("click", ".card-id", function () {
 });
 
 function setTaskData(id) {
+	console.log(id)
 	localStorage.setItem("taskID", id);
 }
 

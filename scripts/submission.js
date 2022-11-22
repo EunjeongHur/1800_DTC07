@@ -5,7 +5,6 @@ function viewDetails(id) {
         // const url = window.location.search;
         // const urlParams = new URLSearchParams(url);
         // const docid = urlParams.get('docid');
-
     db.collection('tasks').doc(id)
         .onSnapshot(doc => {
             let task_title = doc.data().title;
