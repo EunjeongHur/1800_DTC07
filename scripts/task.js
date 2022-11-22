@@ -35,7 +35,7 @@ function displayTask(uid) {
             var users_set = thisSet.set;
 			db.collection("tasks")
                 .where("school_set", "==", users_set)
-				// .orderBy("date")
+				.orderBy("date")
 				.get()
 				.then((snap) => {
 					var counter = 0;
