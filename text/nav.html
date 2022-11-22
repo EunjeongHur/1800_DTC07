@@ -5,13 +5,13 @@
             aria-label="Toggle navigation">
             <span id="menu_icon" class="material-icons">menu</span>
         </button>
-        <a style="font-family: 'Kalam', cursive;" class="navbar-brand text-light" href="main.html">
+        <a style="font-family: 'Kalam', cursive;" class="navbar-brand text-light" href="task.html">
             <img src="../images/logo.png" height="36">
             LearnStream</a>
         <div class="btn-group dropstart">
             <span type="button" class="material-icons btn" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="account_circle_icon">account_circle</span>
-            <div class="dropdown-menu" style="margin-top: 40px; margin-right: -40px;">
-                <button id="setting" class="dropdown-item" type="button" onclick="setting()">Settings</button>
+            <div class="dropdown-menu dropdown-menu-dark" style="margin-top: 40px; margin-right: -40px; background-color: #37547c;">
+                <button id="setting" class="dropdown-item" style="color: #fefefe;" type="button" onclick="setting()">Settings</button>
                 <button id="logged_out" class="dropdown-item" type="button" onclick="logged_out()">Log out</button>
                 <button id="logged_in_nav" class="dropdown-item d-none" type="button" onclick="logged_out()">Log in</button>
             </div>
@@ -22,9 +22,7 @@
                     <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Students</a>
                     <ul style="background-color: #37547c;" class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><a style="color: #fefefe;" class="dropdown-item" href="task.html">View Task</a></li>
-                        <li><a style="color: #fefefe;" class="dropdown-item" href="#">View Submission</a></li>
-                        <li><a style="color: #fefefe;" class="dropdown-item" href="#">View Grades</a>
-                        </li>
+                        <li><a style="color: #fefefe;" class="dropdown-item" href="donetask.html">View Done Task</a></li>
                     </ul>
                 </li>
                 <li id="nav_for_instructor" class="nav-item dropdown">

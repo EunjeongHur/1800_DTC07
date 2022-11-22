@@ -12,7 +12,6 @@ function viewDetails(id) {
             let task_date = doc.data().date;
             let task_description = doc.data().description;
             let task_score = doc.data().task_score;
-            console.log(task_score);
 
             // Calculate how many days left
             let today_date = new Date();
@@ -51,8 +50,9 @@ function DoneTaskHandler(taskID){
     .then(function(){
         console.log("This task is done for: " + currentUser )
         // var 
+        window.location.href="task.html";
     })
-    window.location.href="task.html";
+    
 }
 
 
@@ -65,6 +65,9 @@ function setup(){
             $(".submission_submit_btn").attr("doneTask", taskID)
             $("body").on('click', '.submission_submit_btn', function(){
                 DoneTaskHandler(taskID)
+            })
+            $("body").on('click', '.submission_cancel_btn', function(){
+                window.location.href="task.html"
             })
            
         } else {
