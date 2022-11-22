@@ -33,6 +33,8 @@ function displayTask(uid) {
 		getuserSet(uid).then((result) => {
 			thisSet = result;
             var users_set = thisSet.set;
+			var done_tasks = thisSet.done_tasks;
+			
 			db.collection("tasks")
                 .where("school_set", "==", users_set)
 				.orderBy("date")
@@ -41,59 +43,68 @@ function displayTask(uid) {
 					var counter = 0;
 					snap.forEach((doc) => {
 						var docid = doc.id;
-						var course_num = doc.data().course_num;
-						var title = doc.data().title;
-						var type = doc.data().type;
-						var date = doc.data().date;
-						var description = doc.data().description;
-						let newcard = cardTemplate.content.cloneNode(true);
+						if (jQuery.inArray(docid, done_tasks) < 0) {
+							var course_num = doc.data().course_num;
+							var title = doc.data().title;
+							var type = doc.data().type;
+							var date = doc.data().date;
+							var description = doc.data().description;
+							let newcard = cardTemplate.content.cloneNode(true);
 
-						let formatted_task_date = date.replaceAll("-", "");
-						var time_left =
-							Number(formatted_task_date) - Number(newdate);
+							let formatted_task_date = date.replaceAll("-", "");
+							var time_left =
+								Number(formatted_task_date) - Number(newdate);
 
-						if (time_left < -5) {
-							// do something
+							if (time_left < -5) {
+								// do something
+							} else {
+								newcard.querySelector(".card-title").innerHTML =
+									title;
+								newcard.querySelector(
+									".card-course-num"
+								).innerHTML = `${course_num} -&nbsp;`;
+								newcard.querySelector(".card-type").innerHTML =
+									type;
+								let only_date = date.replaceAll("-", "/").slice(5);
+								let translated_date = getMonthName(only_date);
+								newcard.querySelector(
+									".card-onlydate"
+								).innerHTML = `&nbsp;(${translated_date})`;
+								newcard.querySelector(
+									".card-date"
+								).innerHTML = `Due ${date}`;
+								newcard.querySelector(".card-text").innerHTML =
+									description;
+								newcard
+									.querySelector(".card")
+									.setAttribute("docid", docid);
+								newcard
+									.querySelector(".card-body")
+									.setAttribute("taskid", docid);
+								newcard.querySelector(
+									"#collapseCard"
+								).id = `collapseCard${counter}`;
+								newcard
+									.querySelector("#collapseCardtarget")
+									.setAttribute(
+										"data-bs-target",
+										`#collapseCard${counter}`
+									);
+								document
+									.getElementById("tasks" + "-go-here")
+									.appendChild(newcard);
+								counter += 1;
+							}
 						} else {
-							newcard.querySelector(".card-title").innerHTML =
-								title;
-							newcard.querySelector(
-								".card-course-num"
-							).innerHTML = `${course_num} -&nbsp;`;
-							newcard.querySelector(".card-type").innerHTML =
-								type;
-							let only_date = date.replaceAll("-", "/").slice(5);
-							let translated_date = getMonthName(only_date);
-							newcard.querySelector(
-								".card-onlydate"
-							).innerHTML = `&nbsp;(${translated_date})`;
-							newcard.querySelector(
-								".card-date"
-							).innerHTML = `Due ${date}`;
-							newcard.querySelector(".card-text").innerHTML =
-								description;
-							newcard
-								.querySelector(".card-id")
-								.setAttribute("docid", docid);
-							newcard.querySelector(
-								"#collapseCard"
-							).id = `collapseCard${counter}`;
-							newcard
-								.querySelector("#collapseCardtarget")
-								.setAttribute(
-									"data-bs-target",
-									`#collapseCard${counter}`
-								);
-							document
-								.getElementById("tasks" + "-go-here")
-								.appendChild(newcard);
-							counter += 1;
+							console.log("There's no remaining tasks")
 						}
 					});
 				});
+
 		});
 	}
 }
+
 
 $("body").on("click", ".card-id", function () {
 	var docid = $(this).attr("docid");
