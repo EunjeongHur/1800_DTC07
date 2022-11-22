@@ -10,6 +10,7 @@ function populateInfo(){
                 .then(userDoc => {
                     let userName = userDoc.data().name;
                     let userSchool = userDoc.data().school;
+                    let userSet = userDoc.data().set;
                     let userEmail = userDoc.data().email;
                     let userType = userDoc.data().type;
                     let userNum = userDoc.data().student_num;
@@ -29,6 +30,9 @@ function populateInfo(){
                     if (userType != null){
                         $(`select option[value='${userType}']`).attr("selected", "selected");
                     }
+                    if (userSet != null){
+                        $(`select option[value='${userSet}']`).attr("selected", "selected");
+                    } 
                 })
         } else { 
             console.log("no user is logged in");
@@ -50,13 +54,15 @@ function saveUserInfo() {
     userSchool = document.getElementById('schoolInput').value;
     userEmail = document.getElementById('emailInput').value;
     userType = document.getElementById('user_type').selectedOptions[0].value;
+    userSet = document.getElementById('user_set').selectedOptions[0].value;
     console.log(userType);
 
     currentUser.update({
         name: userName,
         school: userSchool,
         email: userEmail,
-        type: userType
+        type: userType,
+        set: userSet
     })
     .then(() => {
         console.log("Document successfully updated!");

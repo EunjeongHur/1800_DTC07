@@ -14,7 +14,8 @@ var uiConfig = {
 					.set({
 						//write to firestore. We are using the UID for the ID in users collection
 						name: user.displayName, //"users" collection
-						email: user.email, //with authenticated user's ID (user.uid)
+						email: user.email,
+						set: 'E'//with authenticated user's ID (user.uid)
 					})
 					.then(function () {
 						console.log("New user added to firestore");
