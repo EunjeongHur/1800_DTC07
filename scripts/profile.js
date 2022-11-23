@@ -17,6 +17,7 @@ function populateInfo(){
 
                     if (userName != null){
                         document.getElementById("nameInput").value = userName;
+                        document.getElementById('user_name_goes_here').innerHTML = userName;
                     }
                     if (userSchool != null){
                         document.getElementById("schoolInput").value = userSchool;

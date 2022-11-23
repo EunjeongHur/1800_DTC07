@@ -55,6 +55,9 @@ h1{
     background-color: #1D3557; 
     border-color: #1D3557;
 }
+.submission_submit_btn:hover{
+    background-color: #fefefe;
+}
 
 .edit_btn{
     transition-duration: 0.3s;
