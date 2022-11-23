@@ -6,7 +6,7 @@ function taskHandler(){
     const course_number = form.querySelector('input[name=course_number]').value;
 
     // Get the set number
-    const school_set = form.querySelector('input[name=school_set]').value;
+    const school_set = document.getElementById('set_options').selectedOptions[0].value;
 
     // Get the task title
     const task_title = form.querySelector('input[name=taskTitle]').value;
