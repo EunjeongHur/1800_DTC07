@@ -1,4 +1,8 @@
 var currentUser;
+var ImageFile;
+
+
+
 
 function populateInfo(){
     firebase.auth().onAuthStateChanged(user => {
@@ -45,29 +49,59 @@ function populateInfo(){
 
 populateInfo();
 
+
 function editUserInfo() {
     //Enable the form fields
     document.getElementById('personalInfoFields').disabled = false;
+    document.getElementById('emailInput').disabled = true;
 }
 
+
+function chooseFileListener(){
+    const fileInput = document.getElementById("mypic-input");
+    const image = document.getElementById("mypic-goes-here");
+
+    fileInput.addEventListener('change', function(e){
+        ImageFile = e.target.files[0];
+        var blob = URL.createObjectURL(ImageFile);
+
+        image.src = blob;
+    })
+}
+chooseFileListener()
+
 function saveUserInfo() {
-    userName = document.getElementById('nameInput').value;
-    userSchool = document.getElementById('schoolInput').value;
-    userEmail = document.getElementById('emailInput').value;
-    userType = document.getElementById('user_type').selectedOptions[0].value;
-    userSet = document.getElementById('user_set').selectedOptions[0].value;
-    console.log(userType);
+    firebase.auth().onAuthStateChanged(function (user) {
+        console.log('inside function')
+        var storageRef = storage.ref("images/" + user.uid + ".jpg")
 
-    currentUser.update({
-        name: userName,
-        school: userSchool,
-        email: userEmail,
-        type: userType,
-        set: userSet
-    })
-    .then(() => {
-        console.log("Document successfully updated!");
+        storageRef.put(ImageFile)
+            .then(function() {
+                console.log('Uploaded to Cloud Storage.');
+                storageRef.getDownloadURL()
+                    .then(function (url) {
+                        console.log('Got the download URL');
+                        userName = document.getElementById('nameInput').value;
+                        userSchool = document.getElementById('schoolInput').value;
+                        userEmail = document.getElementById('emailInput').value;
+                        userType = document.getElementById('user_type').selectedOptions[0].value;
+                        userSet = document.getElementById('user_set').selectedOptions[0].value;
+
+                        db.collection("users").doc(user.uid).update({
+                            name: userName,
+                            school: userSchool,
+                            email: userEmail,
+                            type: userType,
+                            set: userSet
+                        })
+                        .then(() => {
+                            console.log("Document successfully updated!");
+                            document.getElementById('personalInfoFields').disabled = true;
+                            alert("Profile is updated!")
+                        })
+                    })
+            })
     })
 
-    document.getElementById('personalInfoFields').disabled = true;
+    
 }
