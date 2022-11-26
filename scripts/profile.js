@@ -18,6 +18,7 @@ function populateInfo(){
                     let userEmail = userDoc.data().email;
                     let userType = userDoc.data().type;
                     let userNum = userDoc.data().student_num;
+                    let picUrl = userDoc.data().profilePic;
 
                     if (userName != null){
                         document.getElementById("nameInput").value = userName;
@@ -38,6 +39,12 @@ function populateInfo(){
                     if (userSet != null){
                         $(`select option[value='${userSet}']`).attr("selected", "selected");
                     } 
+                    if (picUrl != null){
+                        $("#profile-container").html(`<img class="rounded-circle" id="mypic-goes-here" src="" width="150"></img>`)
+                        $("#mypic-goes-here").attr("src", picUrl);
+                    } else {
+                        $("#profile-container").html(`<span class="material-icons mx-auto d-block" id="account_circle_in_profile">account_circle</span>`);
+                    }
                 })
         } else { 
             console.log("no user is logged in");
@@ -92,7 +99,8 @@ function saveUserInfo() {
                             school: userSchool,
                             email: userEmail,
                             type: userType,
-                            set: userSet
+                            set: userSet,
+                            profilePic: url
                         })
                         .then(() => {
                             console.log("Document successfully updated!");

@@ -47,7 +47,7 @@
 		<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 		<link
 			type="text/css"
 			rel="stylesheet"
@@ -83,17 +83,9 @@
 			<form>
 				<fieldset class="mb-3" id="personalInfoFields" disabled>
 					<div class="form-group">
-						<div class="text-center">
-							<span
-								class="material-icons mx-auto d-block"
-								id="account_circle_in_profile"
-								>account_circle</span
-							>
+						<div id=profile-container class="text-center">
 						</div>
 						<h1 id="user_name_goes_here" class="text-center">User Profile</h1>
-						<div id="profile-container">
-							<img id="mypic-goes-here" src="" width=50 height=50/>
-						</div>
 						<input type="file" id="mypic-input" accept="image/*" />
 					</div>
 					<div class="form-group">
