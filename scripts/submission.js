@@ -1,4 +1,5 @@
 var currentUser;
+var submitted_file;
 
 function viewDetails(id) {
     // Using URL 
@@ -19,7 +20,6 @@ function viewDetails(id) {
             let date = String(today_date.getDate()).padStart(2, "0");
             var newdate = year + month + date
             let formatted_task_date = task_date.replaceAll('-', '');
-
             var time_left = Number(formatted_task_date) - Number(newdate);
             
             $("#task-title").html(`<h1>${task_title}</h1><br>`);
@@ -54,6 +54,46 @@ function DoneTaskHandler(taskID){
     
 }
 
+// function submitWorkHandler(){
+//     const fileInput = document.getElementById("submit-file-input");
+//     fileInput.addEventListener('change', function(e){
+//         submitted_file = e.target.files[0]
+//     })
+// }
+// submitWorkHandler()
+
+
+// function saveWorkFile(taskID){
+//     console.log('inside function')
+//     console.log(submitted_file)
+//     const name = submitted_file.name;
+//     const lastDot = name.lastIndexOf('.');
+//     const fileName = name.substring(0, lastDot);
+//     const ext = name.substring(lastDot + 1);
+//     const taskTitle = $("#task-title").text();
+//     // console.log(taskTitle)
+//     // console.log(fileName)
+//     // console.log(ext)
+//     firebase.auth().onAuthStateChanged(function(user) {
+//         var storageRef = storage.ref("submissions/" + user.uid + "?" + taskID + "." + ext)
+//         console.log(storageRef)
+
+//         storageRef.put(submitted_file)
+//             .then(function() {
+//                 console.log("Uploaded to Cloud Storage.");
+//                 storageRef.getDownloadURL()
+//                     .then(function (url) {
+//                         console.log('Got the download URL');
+//                         console.log(taskID)
+//                         db.collection("users").doc(user.uid).set({
+//                             submitted_work:{
+//                                 taskID: url
+//                             }}, {merge: true}
+//                         )
+//                     })
+//             })
+//     })
+// }
 
 function setup(){
     firebase.auth().onAuthStateChanged(user => {
@@ -62,9 +102,13 @@ function setup(){
             let taskID = localStorage.getItem("taskID");
             viewDetails(taskID)
             $(".submission_submit_btn").attr("doneTask", taskID)
+            // $("body").on('click', '.submission_submit_btn', function(){
+            //     saveWorkFile(taskID)
+            // })
             $("body").on('click', '.submission_submit_btn', function(){
                 DoneTaskHandler(taskID)
             })
+            
             $("body").on('click', '.submission_cancel_btn', function(){
                 window.location.href="task.html"
             })

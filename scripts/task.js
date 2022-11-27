@@ -1,5 +1,29 @@
 var currentUser;
 var user_set;
+var sort_by = "date";
+
+function filter_change(){
+	firebase.auth().onAuthStateChanged((user) =>{
+		if(user) {
+			$("#content").empty()
+			var user_sort_option = document.getElementById("sort_options");
+			sort_by = user_sort_option[user_sort_option.selectedIndex].value;
+			db.collection("users").doc(user.uid).get().then(userDoc => {
+				var current_user_type = userDoc.data().type;
+				if (current_user_type == 'Student'){
+					console.log("student")
+					displayTask(user.uid, sort_by);
+				} else {
+					displayTaskforInstructor(user.uid, sort_by);
+					$('h1').html('Posted Tasks')
+				}
+			})
+		}
+		
+	})
+	
+	
+}
 
 function getMonthName(input) {
 	var input_date = input.slice(-2);
@@ -21,7 +45,7 @@ function getuserSet(uid) {
 }
 
 
-function displayTaskforInstructor(uid) {
+function displayTaskforInstructor(uid, sort_option) {
 	var current_location = $(location).attr("href");
 	if (current_location.endsWith("task.html")) {
 		let cardTemplate = document.getElementById("taskCardTemplate");
@@ -45,7 +69,7 @@ function displayTaskforInstructor(uid) {
 					var type = doc.data().type;
 					var date = doc.data().date;
 					var description = doc.data().description;
-					let newcard = cardTemplate.content.cloneNode(true);
+					var set = doc.data().school_set;
 
 					let formatted_task_date = date.replaceAll("-", "");
 					var time_left =
@@ -54,38 +78,36 @@ function displayTaskforInstructor(uid) {
 					if (time_left < -1) {
 						// do something
 					} else {
-						newcard.querySelector(".card-title").innerHTML =
-							title;
-						newcard.querySelector(
-							".card-course-num"
-						).innerHTML = `${course_num} -&nbsp;`;
-						newcard.querySelector(".card-type").innerHTML =
-							type;
 						let only_date = date.replaceAll("-", "/").slice(5);
 						let translated_date = getMonthName(only_date);
-						newcard.querySelector(
-							".card-onlydate"
-						).innerHTML = `&nbsp;(${translated_date})`;
-						newcard.querySelector(
-							".card-date"
-						).innerHTML = `Due ${date}`;
-						newcard.querySelector(".card-text").innerHTML =
-							description;
-						newcard
-							.querySelector(".card-id")
-							.setAttribute("docid", docid);
-						newcard.querySelector(
-							"#collapseCard"
-						).id = `collapseCard${counter}`;
-						newcard
-							.querySelector("#collapseCardtarget")
-							.setAttribute(
-								"data-bs-target",
-								`#collapseCard${counter}`
-							);
-						document
-							.getElementById("tasks" + "-go-here")
-							.appendChild(newcard);
+						$('#content').append(
+							`
+							<div class="card mx-auto my-2" style="width: 90%;">
+								<div class='card-body px-1'>
+									<button id='collapseCardtarget' class='btn text-start outside-card d-flex shadow-none' type='button' data-bs-toggle='collapse' data-bs-target='#collapseCard${counter}' aria-expanded='false' aria-controls='collapseExample' style='width: 100%'>
+										<span style="color: #393939;">${course_num} -&nbsp;</span>
+										<span style="color: #393939;">${type}</span>
+										<span style="color: #393939;">&nbsp;(${translated_date})</span>
+										<span id="icon_open_in_full" class="material-icons">open_in_full</span>
+									</button>
+								</div>
+								<div class="collapse" id="collapseCard${counter}">
+									<div class="inside_card px-3">
+										<p><b>Title:&nbsp</b>${title}</p>
+										<p><b>Due</b> ${date}</p>
+										<p><b>Set: </b>${set}</p>
+										<p><b>Description:&nbsp</b>${description}</p>
+										<div
+											class="d-flex justify-content-end"
+											style="padding-bottom: 20px;"
+										>
+											<button class="btn delete-this-task shadow-none delete_btn" docid="${docid}">Delete</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							`
+						)
 						counter += 1;
 					}
 			});
@@ -96,10 +118,9 @@ function displayTaskforInstructor(uid) {
 
 
 
-function displayTask(uid) {
+function displayTask(uid, sort_option) {
 	var current_location = $(location).attr("href");
 	if (current_location.endsWith("task.html")) {
-		let cardTemplate = document.getElementById("taskCardTemplate");
 		// Calculate how many days left
 		let today_date = new Date();
 		let year = today_date.getFullYear();
@@ -113,7 +134,7 @@ function displayTask(uid) {
 			
 			db.collection("tasks")
                 .where("school_set", "==", users_set)
-				.orderBy("date")
+				.orderBy(sort_option)
 				.get()
 				.then((snap) => {
 					var counter = 0;
@@ -125,7 +146,7 @@ function displayTask(uid) {
 							var type = doc.data().type;
 							var date = doc.data().date;
 							var description = doc.data().description;
-							let newcard = cardTemplate.content.cloneNode(true);
+							// let newcard = cardTemplate.content.cloneNode(true);
 
 							let formatted_task_date = date.replaceAll("-", "");
 							var time_left =
@@ -134,38 +155,35 @@ function displayTask(uid) {
 							if (time_left < -5) {
 								// do something
 							} else {
-								newcard.querySelector(".card-title").innerHTML =
-									title;
-								newcard.querySelector(
-									".card-course-num"
-								).innerHTML = `${course_num} -&nbsp;`;
-								newcard.querySelector(".card-type").innerHTML =
-									type;
 								let only_date = date.replaceAll("-", "/").slice(5);
 								let translated_date = getMonthName(only_date);
-								newcard.querySelector(
-									".card-onlydate"
-								).innerHTML = `&nbsp;(${translated_date})`;
-								newcard.querySelector(
-									".card-date"
-								).innerHTML = `Due ${date}`;
-								newcard.querySelector(".card-text").innerHTML =
-									description;
-								newcard
-									.querySelector(".card-id")
-									.setAttribute("docid", docid);
-								newcard.querySelector(
-									"#collapseCard"
-								).id = `collapseCard${counter}`;
-								newcard
-									.querySelector("#collapseCardtarget")
-									.setAttribute(
-										"data-bs-target",
-										`#collapseCard${counter}`
-									);
-								document
-									.getElementById("tasks" + "-go-here")
-									.appendChild(newcard);
+								$('#content').append(
+									`
+									<div class="card mx-auto my-2" style="width: 90%;">
+										<div class='card-body px-1'>
+											<button id='collapseCardtarget' class='btn text-start outside-card d-flex shadow-none' type='button' data-bs-toggle='collapse' data-bs-target='#collapseCard${counter}' aria-expanded='false' aria-controls='collapseExample' style='width: 100%'>
+												<span style="color: #393939;">${course_num} -&nbsp;</span>
+												<span style="color: #393939;">${type}</span>
+												<span style="color: #393939;">&nbsp;(${translated_date})</span>
+												<span id="icon_open_in_full" class="material-icons">open_in_full</span>
+								 	 		</button>
+										</div>
+										<div class="collapse" id="collapseCard${counter}">
+            								<div class="inside_card px-3">
+              									<h6>${title}</h6>
+												<p>Due ${date}</p>
+												<p>${description}</p>
+												<div
+													class="d-flex justify-content-end"
+													style="padding-bottom: 20px;"
+												>
+													<button class="btn card-id shadow-none submission_submit_btn" docid="${docid}">View Details</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									`
+								)
 								counter += 1;
 							}
 						} else {
@@ -188,20 +206,20 @@ $("body").on("click", ".card-id", function () {
 	// window.location.href="submission.html?docid="+docid
 });
 
+$("body").on("click", ".delete-this-task", function () {
+	var docid = $(this).attr("docid");
+	console.log(docid)
+	db.collection("tasks").doc(docid).delete();
+	console.log(currentUser.id)
+	$("#content").empty()
+	displayTaskforInstructor(currentUser.id, sort_by)
+})
+
 function setTaskData(id) {
 	console.log(id)
 	localStorage.setItem("taskID", id);
 }
 
-$("#search").keyup(function () {
-	$(".card").removeClass("d-none");
-	var card_title = $(this).val();
-	$(".card-deck")
-		.find('.card .card-body h5:not(:contains("' + card_title + '"))')
-		.parent()
-		.parent()
-		.addClass("d-none");
-});
 
 firebase.auth().onAuthStateChanged((user) => {
 	$("#success-alert").hide();
@@ -215,7 +233,7 @@ firebase.auth().onAuthStateChanged((user) => {
 				var current_user_type = userDoc.data().type;
 				if (current_user_type == 'Student'){
 					// console.log("student")
-					displayTask(current_uid);
+					displayTask(current_uid, sort_by);
 				} else {
 					displayTaskforInstructor(current_uid);
 					$('h1').html('Posted Tasks')

@@ -40,7 +40,7 @@ function populateInfo(){
                         $(`select option[value='${userSet}']`).attr("selected", "selected");
                     } 
                     if (picUrl != null){
-                        $("#profile-container").html(`<img class="rounded-circle" id="mypic-goes-here" src="" width="150"></img>`)
+                        $("#profile-container").html(`<img class="rounded-circle" id="mypic-goes-here" src="" width="150">`)
                         $("#mypic-goes-here").attr("src", picUrl);
                     } else {
                         $("#profile-container").html(`<span class="material-icons mx-auto d-block" id="account_circle_in_profile">account_circle</span>`);
