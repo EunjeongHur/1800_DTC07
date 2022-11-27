@@ -11,7 +11,6 @@ function filter_change(){
 			db.collection("users").doc(user.uid).get().then(userDoc => {
 				var current_user_type = userDoc.data().type;
 				if (current_user_type == 'Student'){
-					console.log("student")
 					displayTask(user.uid, sort_by);
 				} else {
 					displayTaskforInstructor(user.uid, sort_by);
@@ -63,7 +62,6 @@ function displayTaskforInstructor(uid, sort_option) {
 				var counter = 0;
 				snap.forEach((doc) => {
 					var docid = doc.id;
-					
 					var course_num = doc.data().course_num;
 					var title = doc.data().title;
 					var type = doc.data().type;
@@ -75,9 +73,7 @@ function displayTaskforInstructor(uid, sort_option) {
 					var time_left =
 						Number(formatted_task_date) - Number(newdate);
 
-					if (time_left < -1) {
-						// do something
-					} else {
+					if (time_left > -1){
 						let only_date = date.replaceAll("-", "/").slice(5);
 						let translated_date = getMonthName(only_date);
 						$('#content').append(
@@ -201,29 +197,22 @@ $("body").on("click", ".card-id", function () {
 	var docid = $(this).attr("docid");
 	setTaskData(docid);
 	window.location.href = "submission.html";
-
-	// Using URL
-	// window.location.href="submission.html?docid="+docid
 });
 
 $("body").on("click", ".delete-this-task", function () {
 	var docid = $(this).attr("docid");
-	console.log(docid)
 	db.collection("tasks").doc(docid).delete();
-	console.log(currentUser.id)
 	$("#content").empty()
 	displayTaskforInstructor(currentUser.id, sort_by)
 })
 
 function setTaskData(id) {
-	console.log(id)
 	localStorage.setItem("taskID", id);
 }
 
 
 firebase.auth().onAuthStateChanged((user) => {
 	$("#success-alert").hide();
-	// Check if a user is signed in:
 	if (user) {
 		currentUser = db.collection("users").doc(user.uid);
 		var current_uid = user.uid;
@@ -232,7 +221,6 @@ firebase.auth().onAuthStateChanged((user) => {
 			.then(userDoc => {
 				var current_user_type = userDoc.data().type;
 				if (current_user_type == 'Student'){
-					// console.log("student")
 					displayTask(current_uid, sort_by);
 				} else {
 					displayTaskforInstructor(current_uid);

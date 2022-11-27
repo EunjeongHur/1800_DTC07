@@ -1,15 +1,10 @@
 var currentUser;
 var ImageFile;
 
-
-
-
 function populateInfo(){
     firebase.auth().onAuthStateChanged(user => {
         if (user){
-            // go and get the current user info from firestore
             currentUser = db.collection("users").doc(user.uid);
-            console.log(user.uid);
             currentUser.get()
                 .then(userDoc => {
                     let userName = userDoc.data().name;
@@ -58,7 +53,6 @@ populateInfo();
 
 
 function editUserInfo() {
-    //Enable the form fields
     document.getElementById('personalInfoFields').disabled = false;
     document.getElementById('emailInput').disabled = true;
 }
@@ -71,7 +65,6 @@ function chooseFileListener(){
     fileInput.addEventListener('change', function(e){
         ImageFile = e.target.files[0];
         var blob = URL.createObjectURL(ImageFile);
-
         image.src = blob;
     })
 }
@@ -79,15 +72,12 @@ chooseFileListener()
 
 function saveUserInfo() {
     firebase.auth().onAuthStateChanged(function (user) {
-        console.log('inside function')
         var storageRef = storage.ref("images/" + user.uid + ".jpg")
 
         storageRef.put(ImageFile)
             .then(function() {
-                console.log('Uploaded to Cloud Storage.');
                 storageRef.getDownloadURL()
                     .then(function (url) {
-                        console.log('Got the download URL');
                         userName = document.getElementById('nameInput').value;
                         userSchool = document.getElementById('schoolInput').value;
                         userEmail = document.getElementById('emailInput').value;
