@@ -1,4 +1,4 @@
-## My Web Application (Add your Title here)
+## LearnStream
 
 - [General info](#general-info)
 - [Technologies](#technologies)
@@ -6,11 +6,11 @@
 
 ## General Info
 
-This browser based web application to ...
+This browser based web application, LearnStream is for helping students to find all their course materials easily with a user-friendly UI/UX and track their done and undone tasks. 
 
 - Hi my name is Sam, I am really excited to learn more programming languages.
 - My name is Peter and I'm really excited to learn programming
-- Hi my name is Eunjeong(Alice) Hur and I'm excited to learn more programming languages
+- Hi my name is Eunjeong(Alice) Hur and I'm eager to learn more programming languages, especially JavaScript and Firestore. 
 
 ## Technologies
 
