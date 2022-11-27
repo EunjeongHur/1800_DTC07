@@ -65,12 +65,24 @@ h1{
     background-color: #cdd5dc;
 }
 
+.delete_btn{
+    transition-duration: 0.3s;
+    border-color: red;
+    color: red;
+    background-color: #fefefe;
+}
+
 .edit_btn:hover{
     background-color: #fefefe;
 }
 
 .submission_submit_btn:hover, .submission_cancel_btn:hover{
     background-color: #fefefe;
+}
+
+.delete_btn:hover{
+    background-color: #DD3030;
+    color: #fefefe
 }
 
 #alert-flex{

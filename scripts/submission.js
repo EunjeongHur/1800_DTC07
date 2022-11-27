@@ -1,10 +1,7 @@
 var currentUser;
+var submitted_file;
 
 function viewDetails(id) {
-    // Using URL 
-        // const url = window.location.search;
-        // const urlParams = new URLSearchParams(url);
-        // const docid = urlParams.get('docid');
     db.collection('tasks').doc(id)
         .onSnapshot(doc => {
             let task_title = doc.data().title;
@@ -19,7 +16,6 @@ function viewDetails(id) {
             let date = String(today_date.getDate()).padStart(2, "0");
             var newdate = year + month + date
             let formatted_task_date = task_date.replaceAll('-', '');
-
             var time_left = Number(formatted_task_date) - Number(newdate);
             
             $("#task-title").html(`<h1>${task_title}</h1><br>`);
@@ -40,15 +36,12 @@ function viewDetails(id) {
 }
 
 function DoneTaskHandler(taskID){
-    console.log("button clicked")
     currentUser.set({
         done_tasks: firebase.firestore.FieldValue.arrayUnion(taskID)
     },{
             merge: true
     })
     .then(function(){
-        console.log("This task is done for: " + currentUser )
-        // var 
         window.location.href="task.html";
     })
     
@@ -65,12 +58,11 @@ function setup(){
             $("body").on('click', '.submission_submit_btn', function(){
                 DoneTaskHandler(taskID)
             })
+            
             $("body").on('click', '.submission_cancel_btn', function(){
                 window.location.href="task.html"
             })
            
-        } else {
-            // do something else
         }
     })
 }

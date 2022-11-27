@@ -1,11 +1,10 @@
 var currentUser;
+var ImageFile;
 
 function populateInfo(){
     firebase.auth().onAuthStateChanged(user => {
         if (user){
-            // go and get the current user info from firestore
             currentUser = db.collection("users").doc(user.uid);
-            console.log(user.uid);
             currentUser.get()
                 .then(userDoc => {
                     let userName = userDoc.data().name;
@@ -14,6 +13,7 @@ function populateInfo(){
                     let userEmail = userDoc.data().email;
                     let userType = userDoc.data().type;
                     let userNum = userDoc.data().student_num;
+                    let picUrl = userDoc.data().profilePic;
 
                     if (userName != null){
                         document.getElementById("nameInput").value = userName;
@@ -34,6 +34,12 @@ function populateInfo(){
                     if (userSet != null){
                         $(`select option[value='${userSet}']`).attr("selected", "selected");
                     } 
+                    if (picUrl != null){
+                        $("#profile-container").html(`<img class="rounded-circle" id="mypic-goes-here" src="" width="150">`)
+                        $("#mypic-goes-here").attr("src", picUrl);
+                    } else {
+                        $("#profile-container").html(`<span class="material-icons mx-auto d-block" id="account_circle_in_profile">account_circle</span>`);
+                    }
                 })
         } else { 
             console.log("no user is logged in");
@@ -45,29 +51,55 @@ function populateInfo(){
 
 populateInfo();
 
+
 function editUserInfo() {
-    //Enable the form fields
     document.getElementById('personalInfoFields').disabled = false;
+    document.getElementById('emailInput').disabled = true;
 }
 
+
+function chooseFileListener(){
+    const fileInput = document.getElementById("mypic-input");
+    const image = document.getElementById("mypic-goes-here");
+
+    fileInput.addEventListener('change', function(e){
+        ImageFile = e.target.files[0];
+        var blob = URL.createObjectURL(ImageFile);
+        image.src = blob;
+    })
+}
+chooseFileListener()
+
 function saveUserInfo() {
-    userName = document.getElementById('nameInput').value;
-    userSchool = document.getElementById('schoolInput').value;
-    userEmail = document.getElementById('emailInput').value;
-    userType = document.getElementById('user_type').selectedOptions[0].value;
-    userSet = document.getElementById('user_set').selectedOptions[0].value;
-    console.log(userType);
+    firebase.auth().onAuthStateChanged(function (user) {
+        var storageRef = storage.ref("images/" + user.uid + ".jpg")
 
-    currentUser.update({
-        name: userName,
-        school: userSchool,
-        email: userEmail,
-        type: userType,
-        set: userSet
-    })
-    .then(() => {
-        console.log("Document successfully updated!");
+        storageRef.put(ImageFile)
+            .then(function() {
+                storageRef.getDownloadURL()
+                    .then(function (url) {
+                        userName = document.getElementById('nameInput').value;
+                        userSchool = document.getElementById('schoolInput').value;
+                        userEmail = document.getElementById('emailInput').value;
+                        userType = document.getElementById('user_type').selectedOptions[0].value;
+                        userSet = document.getElementById('user_set').selectedOptions[0].value;
+
+                        db.collection("users").doc(user.uid).update({
+                            name: userName,
+                            school: userSchool,
+                            email: userEmail,
+                            type: userType,
+                            set: userSet,
+                            profilePic: url
+                        })
+                        .then(() => {
+                            console.log("Document successfully updated!");
+                            document.getElementById('personalInfoFields').disabled = true;
+                            alert("Profile is updated!")
+                        })
+                    })
+            })
     })
 
-    document.getElementById('personalInfoFields').disabled = true;
+    
 }

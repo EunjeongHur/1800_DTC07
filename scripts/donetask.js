@@ -22,12 +22,9 @@ function displayDoneTask(user) {
     db.collection("users").doc(user.uid).get()
         .then(userDoc => {
             var doneTasks = userDoc.data().done_tasks;
-            console.log(doneTasks);
-
             let cardTemplate = document.getElementById('donetaskCardTemplate');
             var counter = 0;
             doneTasks.forEach(thisTaskID => {
-                console.log(thisTaskID);
                 db.collection("tasks").doc(thisTaskID).get()
                 .then(snap => {
                     var doc = snap.data()
@@ -74,9 +71,8 @@ function setup(){
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             displayDoneTask(user)
-            // do something
         } else {
-            // do something else
+            console.log("Not signed in yet.")
         }
     });
 }

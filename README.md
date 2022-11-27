@@ -1,4 +1,4 @@
-## My Web Application (Add your Title here)
+## LearnStream
 
 - [General info](#general-info)
 - [Technologies](#technologies)
@@ -6,11 +6,11 @@
 
 ## General Info
 
-This browser based web application to ...
+This browser based web application, LearnStream is for helping students to find all their course materials easily with a user-friendly UI/UX and track their done and undone tasks. 
 
 - Hi my name is Sam, I am really excited to learn more programming languages.
 - My name is Peter and I'm really excited to learn programming
-- Hi my name is Eunjeong(Alice) Hur and I'm excited to learn more programming languages
+- Hi my name is Eunjeong(Alice) Hur and I'm eager to learn more programming languages, especially JavaScript and Firestore. 
 
 ## Technologies
 
@@ -19,7 +19,7 @@ Technologies used for this project:
 - HTML, CSS
 - JavaScript
 - Bootstrap
-- ...
+- Firebase Database, Firebase Storage, Firebase Authentication
 
 ## Content
 
@@ -28,17 +28,39 @@ Content of the project folder:
 ```
  Top level of project folder:
 ├── .gitignore               # Git ignore file
-├── index.html               # landing HTML file, this is what users see when you come to url
 └── README.md
 
 It has the following subfolders and files:
-├── .git                     # Folder for git repo
+├── templates                # Folder for html files
+    /confirmation.html
+    /donetask.html
+    /features.html
+    /index.html
+    /instructor.html
+    /login.html
+    /profile.html
+    /submission.html
+    /task.html
+    /template.html
 ├── images                   # Folder for images
-    /blah.jpg                #
+    /logo.png
+    /feature_screenshot1
+    /feature_screenshot2     
 ├── scripts                  # Folder for scripts
-    /blah.js                 #
+    /authentication.js       
+    /donetask.js
+    /firebaseAPI_TEAM07.js
+    /instructor.js
+    /log_in.js
+    /profile.js
+    /skeleton.js
+    /submission.js
+    /task.js
 ├── styles                   # Folder for styles
-    /blah.css                #
+    /style.css
+├── text                     # Folder for navbar and footer
+    /footer.html
+    /nav.html
 
 Firebase hosting files:
 ├── .firebaserc...
