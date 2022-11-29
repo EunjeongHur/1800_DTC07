@@ -47,13 +47,8 @@ function getuserSet(uid) {
 function displayTaskforInstructor(uid, sort_option) {
 	var current_location = $(location).attr("href");
 	if (current_location.endsWith("task.html")) {
-		let cardTemplate = document.getElementById("taskCardTemplate");
 		// Calculate how many days left
 		let today_date = new Date();
-		let year = today_date.getFullYear();
-		let month = String(today_date.getMonth() + 1).padStart(2, "0");
-		let date = String(today_date.getDate()).padStart(2, "0");
-		var newdate = year + month + date;
 		
 		db.collection("tasks")
 			.orderBy("date")
@@ -69,9 +64,9 @@ function displayTaskforInstructor(uid, sort_option) {
 					var description = doc.data().description;
 					var set = doc.data().school_set;
 
-					let formatted_task_date = date.replaceAll("-", "");
-					var time_left =
-						Number(formatted_task_date) - Number(newdate);
+					let due_date = new Date(date);
+					var difference_in_time = due_date.getTime() - today_date.getTime();
+					var time_left = Math.round(difference_in_time / (1000 * 3600 * 24));
 
 					if (time_left > -1){
 						let only_date = date.replaceAll("-", "/").slice(5);
@@ -119,10 +114,6 @@ function displayTask(uid, sort_option) {
 	if (current_location.endsWith("task.html")) {
 		// Calculate how many days left
 		let today_date = new Date();
-		let year = today_date.getFullYear();
-		let month = String(today_date.getMonth() + 1).padStart(2, "0");
-		let date = String(today_date.getDate()).padStart(2, "0");
-		var newdate = year + month + date;
 		getuserSet(uid).then((result) => {
 			thisSet = result;
             var users_set = thisSet.set;
@@ -142,11 +133,12 @@ function displayTask(uid, sort_option) {
 							var type = doc.data().type;
 							var date = doc.data().date;
 							var description = doc.data().description;
-							// let newcard = cardTemplate.content.cloneNode(true);
+							
+							let due_date = new Date(date);
+							var difference_in_time = due_date.getTime() - today_date.getTime();
 
-							let formatted_task_date = date.replaceAll("-", "");
-							var time_left =
-								Number(formatted_task_date) - Number(newdate);
+							var time_left = Math.round(difference_in_time / (1000 * 3600 * 24));
+								// Number(formatted_task_date) - Number(newdate);
 
 							if (time_left < -5) {
 								// do something

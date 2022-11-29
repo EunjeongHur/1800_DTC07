@@ -1,5 +1,4 @@
 var currentUser;
-var submitted_file;
 
 function viewDetails(id) {
     db.collection('tasks').doc(id)
@@ -11,12 +10,9 @@ function viewDetails(id) {
 
             // Calculate how many days left
             let today_date = new Date();
-            let year = today_date.getFullYear();
-            let month = String(today_date.getMonth() + 1).padStart(2, "0");
-            let date = String(today_date.getDate()).padStart(2, "0");
-            var newdate = year + month + date
-            let formatted_task_date = task_date.replaceAll('-', '');
-            var time_left = Number(formatted_task_date) - Number(newdate);
+            let due_date = new Date(task_date);
+            var difference_in_time = due_date.getTime() - today_date.getTime();
+            var time_left = Math.round(difference_in_time / (1000 * 3600 * 24));
             
             $("#task-title").html(`<h1>${task_title}</h1><br>`);
             $("#task-date").html(`<b>Due: </b> ${task_date}`);
