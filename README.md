@@ -42,6 +42,7 @@ It has the following subfolders and files:
     /submission.html
     /task.html
     /template.html
+    /about_us.html
 ├── images                   # Folder for images
     /logo.png
     /feature_screenshot1
