@@ -90,6 +90,15 @@ h1{
     justify-content: space-between;
 }
 
+#aboutus_div{
+    width: 80%;
+    margin: auto;
+}
+
+#aboutus_div h1{
+    font-family: 'Kalam', cursive;
+}
+
 
 #menu_icon{
     color: #F3F5F9;
