@@ -1,40 +1,137 @@
-<nav class="navbar fixed-top navbar-expand-lg" style="background-color: #1d3557;">
-    <div class="container-fluid">
-        <button style="background-color: #e9c46a;" class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span id="menu_icon" class="material-icons">menu</span>
-        </button>
-        <a style="font-family: 'Kalam', cursive;" class="navbar-brand text-light" href="task.html">
-            <img src="../images/logo.png" height="36">
-            LearnStream</a>
-        <div class="btn-group dropstart">
-            <span type="button" class="material-icons btn" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="account_circle_icon">account_circle</span>
-            <div class="dropdown-menu dropdown-menu-dark" style="margin-top: 40px; margin-right: -40px; background-color: #37547c;">
-                <button id="setting" class="dropdown-item" style="color: #fefefe;" type="button" onclick="setting()">Settings</button>
-                <button id="logged_out" class="dropdown-item" type="button" onclick="logged_out()">Log out</button>
-                <button id="logged_in_nav" class="dropdown-item d-none" type="button" onclick="logged_out()">Log in</button>
-            </div>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li id="nav_for_student" class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Students</a>
-                    <ul style="background-color: #37547c;" class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                        <li><a style="color: #fefefe;" class="dropdown-item" href="task.html">View Task</a></li>
-                        <li><a style="color: #fefefe;" class="dropdown-item" href="donetask.html">View Done Task</a></li>
-                    </ul>
-                </li>
-                <li id="nav_for_instructor" class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Instructors</a>
-                    <ul style="background-color: #37547c;" class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                        <li><a style="color: #fefefe;" class="dropdown-item" href="instructor.html">Post Task</a></li>
-                        <!-- <li><a style="color: #fefefe;" class="dropdown-item" href="post_grade.html">Post Grade</a></li> -->
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        
-        
-    </div>
+<nav
+	class="navbar fixed-top navbar-expand-lg"
+	style="background-color: #1d3557"
+>
+	<div class="container-fluid">
+		<button
+			style="background-color: #e9c46a"
+			class="navbar-toggler shadow-none"
+			type="button"
+			data-bs-toggle="collapse"
+			data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent"
+			aria-expanded="false"
+			aria-label="Toggle navigation"
+		>
+			<span id="menu_icon" class="material-icons">menu</span>
+		</button>
+		<a
+			style="font-family: 'Kalam', cursive"
+			class="navbar-brand text-light"
+			href="task.html"
+		>
+			<img src="../images/logo.png" height="36" />
+			LearnStream</a
+		>
+		<div class="btn-group dropstart">
+			<span
+				type="button"
+				class="material-icons btn"
+				data-bs-toggle="dropdown"
+				aria-haspopup="true"
+				aria-expanded="false"
+				id="account_circle_icon"
+				>account_circle</span
+			>
+			<div
+				class="dropdown-menu dropdown-menu-dark"
+				style="
+					margin-top: 40px;
+					margin-right: -40px;
+					background-color: #37547c;
+				"
+			>
+				<button
+					id="setting"
+					class="dropdown-item"
+					style="color: #fefefe"
+					type="button"
+					onclick="setting()"
+				>
+					Settings
+				</button>
+				<button
+					id="logged_out"
+					class="dropdown-item"
+					type="button"
+					onclick="logged_out()"
+				>
+					Log out
+				</button>
+				<button
+					id="logged_in_nav"
+					class="dropdown-item d-none"
+					type="button"
+					onclick="logged_out()"
+				>
+					Log in
+				</button>
+			</div>
+		</div>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li id="nav_for_student" class="nav-item dropdown">
+					<a
+						class="nav-link dropdown-toggle text-light"
+						href="#"
+						id="navbarDropdownMenuLink"
+						role="button"
+						data-toggle="dropdown"
+						aria-haspopup="true"
+						aria-expanded="false"
+						>Students</a
+					>
+					<ul
+						style="background-color: #37547c"
+						class="dropdown-menu dropdown-menu-dark"
+						aria-labelledby="navbarDarkDropdownMenuLink"
+					>
+						<li>
+							<a
+								style="color: #fefefe"
+								class="dropdown-item"
+								href="task.html"
+								>View Task</a
+							>
+						</li>
+						<li>
+							<a
+								style="color: #fefefe"
+								class="dropdown-item"
+								href="donetask.html"
+								>View Done Task</a
+							>
+						</li>
+					</ul>
+				</li>
+				<li id="nav_for_instructor" class="nav-item dropdown">
+					<a
+						class="nav-link dropdown-toggle text-light"
+						href="#"
+						id="navbarDropdownMenuLink"
+						role="button"
+						data-toggle="dropdown"
+						aria-haspopup="true"
+						aria-expanded="false"
+						>Instructors</a
+					>
+					<ul
+						style="background-color: #37547c"
+						class="dropdown-menu dropdown-menu-dark"
+						aria-labelledby="navbarDarkDropdownMenuLink"
+					>
+						<li>
+							<a
+								style="color: #fefefe"
+								class="dropdown-item"
+								href="instructor.html"
+								>Post Task</a
+							>
+						</li>
+						<!-- <li><a style="color: #fefefe;" class="dropdown-item" href="post_grade.html">Post Grade</a></li> -->
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
 </nav>
