@@ -2,26 +2,26 @@ var currentUser;
 var user_set;
 var sort_by = "date";
 
-function filter_change(){
-	firebase.auth().onAuthStateChanged((user) =>{
-		if(user) {
-			$("#content").empty()
+function filter_change() {
+	firebase.auth().onAuthStateChanged((user) => {
+		if (user) {
+			$("#content").empty();
 			var user_sort_option = document.getElementById("sort_options");
 			sort_by = user_sort_option[user_sort_option.selectedIndex].value;
-			db.collection("users").doc(user.uid).get().then(userDoc => {
-				var current_user_type = userDoc.data().type;
-				if (current_user_type == 'Student'){
-					displayTask(user.uid, sort_by);
-				} else {
-					displayTaskforInstructor(user.uid, sort_by);
-					$('h1').html('Posted Tasks')
-				}
-			})
+			db.collection("users")
+				.doc(user.uid)
+				.get()
+				.then((userDoc) => {
+					var current_user_type = userDoc.data().type;
+					if (current_user_type == "Student") {
+						displayTask(user.uid, sort_by);
+					} else {
+						displayTaskforInstructor(user.uid, sort_by);
+						$("h1").html("Posted Tasks");
+					}
+				});
 		}
-		
-	})
-	
-	
+	});
 }
 
 function getMonthName(input) {
@@ -43,13 +43,12 @@ function getuserSet(uid) {
 		});
 }
 
-
 function displayTaskforInstructor(uid, sort_option) {
 	var current_location = $(location).attr("href");
 	if (current_location.endsWith("task.html")) {
 		// Calculate how many days left
 		let today_date = new Date();
-		
+
 		db.collection("tasks")
 			.orderBy("date")
 			.get()
@@ -65,13 +64,16 @@ function displayTaskforInstructor(uid, sort_option) {
 					var set = doc.data().school_set;
 
 					let due_date = new Date(date);
-					var difference_in_time = due_date.getTime() - today_date.getTime();
-					var time_left = Math.round(difference_in_time / (1000 * 3600 * 24));
+					var difference_in_time =
+						due_date.getTime() - today_date.getTime();
+					var time_left = Math.round(
+						difference_in_time / (1000 * 3600 * 24)
+					);
 
-					if (time_left > -1){
+					if (time_left > -1) {
 						let only_date = date.replaceAll("-", "/").slice(5);
 						let translated_date = getMonthName(only_date);
-						$('#content').append(
+						$("#content").append(
 							`
 							<div class="card mx-auto my-2" style="width: 90%;">
 								<div class='card-body px-1'>
@@ -98,16 +100,13 @@ function displayTaskforInstructor(uid, sort_option) {
 								</div>
 							</div>
 							`
-						)
+						);
 						counter += 1;
 					}
+				});
 			});
-		});
-
-	};
+	}
 }
-
-
 
 function displayTask(uid, sort_option) {
 	var current_location = $(location).attr("href");
@@ -116,11 +115,11 @@ function displayTask(uid, sort_option) {
 		let today_date = new Date();
 		getuserSet(uid).then((result) => {
 			thisSet = result;
-            var users_set = thisSet.set;
+			var users_set = thisSet.set;
 			var done_tasks = thisSet.done_tasks;
-			
+
 			db.collection("tasks")
-                .where("school_set", "==", users_set)
+				.where("school_set", "==", users_set)
 				.orderBy(sort_option)
 				.get()
 				.then((snap) => {
@@ -133,18 +132,23 @@ function displayTask(uid, sort_option) {
 							var type = doc.data().type;
 							var date = doc.data().date;
 							var description = doc.data().description;
-							
-							let due_date = new Date(date);
-							var difference_in_time = due_date.getTime() - today_date.getTime();
 
-							var time_left = Math.round(difference_in_time / (1000 * 3600 * 24));
+							let due_date = new Date(date);
+							var difference_in_time =
+								due_date.getTime() - today_date.getTime();
+
+							var time_left = Math.round(
+								difference_in_time / (1000 * 3600 * 24)
+							);
 
 							if (time_left < -5) {
 								// do not display anything
 							} else {
-								let only_date = date.replaceAll("-", "/").slice(5);
+								let only_date = date
+									.replaceAll("-", "/")
+									.slice(5);
 								let translated_date = getMonthName(only_date);
-								$('#content').append(
+								$("#content").append(
 									`
 									<div class="card mx-auto my-2" style="width: 90%;">
 										<div class='card-body px-1'>
@@ -170,19 +174,17 @@ function displayTask(uid, sort_option) {
 										</div>
 									</div>
 									`
-								)
+								);
 								counter += 1;
 							}
 						} else {
-							console.log("There's no remaining tasks")
+							console.log("There's no remaining tasks");
 						}
 					});
 				});
-
 		});
 	}
 }
-
 
 $("body").on("click", ".card-id", function () {
 	var docid = $(this).attr("docid");
@@ -193,14 +195,13 @@ $("body").on("click", ".card-id", function () {
 $("body").on("click", ".delete-this-task", function () {
 	var docid = $(this).attr("docid");
 	db.collection("tasks").doc(docid).delete();
-	$("#content").empty()
-	displayTaskforInstructor(currentUser.id, sort_by)
-})
+	$("#content").empty();
+	displayTaskforInstructor(currentUser.id, sort_by);
+});
 
 function setTaskData(id) {
 	localStorage.setItem("taskID", id);
 }
-
 
 firebase.auth().onAuthStateChanged((user) => {
 	$("#success-alert").hide();
@@ -208,17 +209,19 @@ firebase.auth().onAuthStateChanged((user) => {
 		currentUser = db.collection("users").doc(user.uid);
 		var current_uid = user.uid;
 		$("#name-goes-here").text(user.displayName);
-		db.collection("users").doc(user.uid).get()
-			.then(userDoc => {
+		db.collection("users")
+			.doc(user.uid)
+			.get()
+			.then((userDoc) => {
 				var current_user_type = userDoc.data().type;
-				if (current_user_type == 'Student'){
+				if (current_user_type == "Student") {
 					displayTask(current_uid, sort_by);
 				} else {
 					displayTaskforInstructor(current_uid);
-					$('h1').html('Posted Tasks')
+					$("h1").html("Posted Tasks");
 				}
-			})
-		
+			});
+
 		$("#success-alert")
 			.fadeTo(2000, 500)
 			.slideUp(500, function () {

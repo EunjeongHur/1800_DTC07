@@ -8,9 +8,9 @@ var uiConfig = {
 				db.collection("users")
 					.doc(user.uid)
 					.set({
-						name: user.displayName, 
+						name: user.displayName,
 						email: user.email,
-						set: 'E'
+						set: "E",
 					})
 					.then(function () {
 						console.log("New user added to firestore");
@@ -30,9 +30,7 @@ var uiConfig = {
 	},
 	signInFlow: "popup",
 	signInSuccessUrl: "task.html",
-	signInOptions: [
-		firebase.auth.EmailAuthProvider.PROVIDER_ID,
-	],
+	signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID],
 	tosUrl: "<your-tos-url>",
 	privacyPolicyUrl: "<your-privacy-policy-url>",
 };
