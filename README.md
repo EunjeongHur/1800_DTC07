@@ -28,21 +28,22 @@ Content of the project folder:
 ```
  Top level of project folder:
 ├── .gitignore               # Git ignore file
+├── 404.html
+├── about_us.html
+├── confirmation.html
+├── donetask.html
+├── features.html
+├── index.html
+├── instructor.html
+├── login.html
+├── profile.html
+├── submission.html
+├── task.html
+├── template.html
 └── README.md
 
+
 It has the following subfolders and files:
-├── templates                # Folder for html files
-    /confirmation.html
-    /donetask.html
-    /features.html
-    /index.html
-    /instructor.html
-    /login.html
-    /profile.html
-    /submission.html
-    /task.html
-    /template.html
-    /about_us.html
 ├── images                   # Folder for images
     /logo.png
     /feature_screenshot1
@@ -64,7 +65,11 @@ It has the following subfolders and files:
     /nav.html
 
 Firebase hosting files:
-├── .firebaserc...
+├── .firebaserc
+├── firebase.json
+├── firebase.indexes.json
+├── firestore.rules
+└── storage.rules
 
 
 ```
