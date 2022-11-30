@@ -6,10 +6,10 @@
 
 ## General Info
 
-Please feel free to explore our mobile web application using our demo account. 
-<b>App link</b>: https://comp1800-project-4d66b.web.app/
-<b>User Email for Demo</b>: demo@test.ca
-<b>User Password for Demo</b>: 123456
+Please feel free to explore our mobile web application using our demo account.  <br />
+<b>App link</b>: https://comp1800-project-4d66b.web.app/  <br />
+<b>User Email for Demo</b>: demo@test.ca  <br />
+<b>User Password for Demo</b>: 123456  <br />
 
 This browser based web application, LearnStream is for helping students to find all their course materials easily with a user-friendly UI/UX and track their done and undone tasks. 
 
@@ -81,7 +81,7 @@ Firebase hosting files:
 
 ```
 
-##Cite
+## Cite
 - [1] “Get Started with the Google Fonts API,” Google Developers. https://developers.google.com/fonts/docs/getting_started
 - [2] “Google Fonts,” Google Fonts. https://fonts.google.com/icons
 - [3] “Hosted Libraries,” Google Developers. https://developers.google.com/speed/libraries
