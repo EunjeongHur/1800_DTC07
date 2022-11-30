@@ -138,10 +138,9 @@ function displayTask(uid, sort_option) {
 							var difference_in_time = due_date.getTime() - today_date.getTime();
 
 							var time_left = Math.round(difference_in_time / (1000 * 3600 * 24));
-								// Number(formatted_task_date) - Number(newdate);
 
 							if (time_left < -5) {
-								// do something
+								// do not display anything
 							} else {
 								let only_date = date.replaceAll("-", "/").slice(5);
 								let translated_date = getMonthName(only_date);
@@ -158,9 +157,9 @@ function displayTask(uid, sort_option) {
 										</div>
 										<div class="collapse" id="collapseCard${counter}">
             								<div class="inside_card px-3">
-              									<h6>${title}</h6>
-												<p>Due ${date}</p>
-												<p>${description}</p>
+												<p><b>Title:&nbsp</b>${title}</p>
+												<p><b>Due</b> ${date}</p>
+												<p><b>Description:&nbsp</b>${description}</p>
 												<div
 													class="d-flex justify-content-end"
 													style="padding-bottom: 20px;"
