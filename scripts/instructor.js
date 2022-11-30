@@ -12,7 +12,8 @@ function taskHandler() {
 		"textarea[id=exampleFormControlTextarea1]"
 	).value;
 	var taskRef = db.collection("tasks");
-
+	
+	// Add this information to the 'tasks' collection
 	if (
 		course_number != "" &&
 		school_set != "" &&

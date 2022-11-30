@@ -3,11 +3,14 @@ var user_set;
 var sort_by = "date";
 
 function filter_change() {
+	// When user selects the sort option, this function will be called
 	firebase.auth().onAuthStateChanged((user) => {
 		if (user) {
 			$("#content").empty();
 			var user_sort_option = document.getElementById("sort_options");
 			sort_by = user_sort_option[user_sort_option.selectedIndex].value;
+			// Open the database "users" collection and if current user is instructor, call displayTaskforInstructor()
+			// If current user is student, call displayTask() function
 			db.collection("users")
 				.doc(user.uid)
 				.get()
@@ -49,8 +52,9 @@ function displayTaskforInstructor(uid, sort_option) {
 		// Calculate how many days left
 		let today_date = new Date();
 
+		// Open the database "tasks" collection
 		db.collection("tasks")
-			.orderBy("date")
+			.orderBy("date") // Default sorting option is due date
 			.get()
 			.then((snap) => {
 				var counter = 0;
@@ -118,9 +122,10 @@ function displayTask(uid, sort_option) {
 			var users_set = thisSet.set;
 			var done_tasks = thisSet.done_tasks;
 
+			// Read the database collection "tasks"
 			db.collection("tasks")
-				.where("school_set", "==", users_set)
-				.orderBy(sort_option)
+				.where("school_set", "==", users_set) // Only populate cards that matches with the student's set
+				.orderBy(sort_option) // It can be sorted by due date or score
 				.get()
 				.then((snap) => {
 					var counter = 0;
@@ -194,7 +199,7 @@ $("body").on("click", ".card-id", function () {
 
 $("body").on("click", ".delete-this-task", function () {
 	var docid = $(this).attr("docid");
-	db.collection("tasks").doc(docid).delete();
+	db.collection("tasks").doc(docid).delete(); // When user clicks 'delete' button, the task is deleted from database
 	$("#content").empty();
 	displayTaskforInstructor(currentUser.id, sort_by);
 });
@@ -213,6 +218,7 @@ firebase.auth().onAuthStateChanged((user) => {
 			.doc(user.uid)
 			.get()
 			.then((userDoc) => {
+				// Get the current user type
 				var current_user_type = userDoc.data().type;
 				if (current_user_type == "Student") {
 					displayTask(current_uid, sort_by);

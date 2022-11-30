@@ -4,6 +4,7 @@ var ImageFile;
 function populateInfo() {
 	firebase.auth().onAuthStateChanged((user) => {
 		if (user) {
+			// Read the "users" collection database and populate those information on the profile.html
 			currentUser = db.collection("users").doc(user.uid);
 			currentUser.get().then((userDoc) => {
 				let userName = userDoc.data().name;
@@ -80,6 +81,7 @@ function saveUserInfo() {
 	firebase.auth().onAuthStateChanged(function (user) {
 		var storageRef = storage.ref("images/" + user.uid + ".jpg");
 
+		// save user input image file in the storage and get the url of image
 		storageRef.put(ImageFile).then(function () {
 			storageRef.getDownloadURL().then(function (url) {
 				userName = document.getElementById("nameInput").value;
@@ -92,6 +94,7 @@ function saveUserInfo() {
 					document.getElementById("user_set").selectedOptions[0]
 						.value;
 
+				// Update the database "users" collection with the new information
 				db.collection("users")
 					.doc(user.uid)
 					.update({

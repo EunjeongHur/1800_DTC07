@@ -18,6 +18,7 @@ function getuserSet(uid) {
 }
 
 function displayDoneTask(user) {
+	// Read the database collection called "users"
 	db.collection("users")
 		.doc(user.uid)
 		.get()
@@ -25,6 +26,8 @@ function displayDoneTask(user) {
 			var doneTasks = userDoc.data().done_tasks;
 			let cardTemplate = document.getElementById("donetaskCardTemplate");
 			var counter = 0;
+			
+			// For each of the donetask array, populate each donetask in html
 			doneTasks.forEach((thisTaskID) => {
 				db.collection("tasks")
 					.doc(thisTaskID)

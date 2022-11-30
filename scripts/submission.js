@@ -1,6 +1,7 @@
 var currentUser;
 
 function viewDetails(id) {
+	// Open the database "tasks" collection and populate this info to the template card.
 	db.collection("tasks")
 		.doc(id)
 		.onSnapshot((doc) => {
@@ -41,6 +42,7 @@ function viewDetails(id) {
 }
 
 function DoneTaskHandler(taskID) {
+	// When user clicks 'done' button, merge this task information to the current user's document
 	currentUser
 		.set(
 			{
