@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <title>LearnStream</title>
     <meta name="comp1800 template" content="My 1800 App" />
@@ -22,24 +21,21 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-    <!-------------------------------------------------------->
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>  
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-    <!-------------------------------------------->
-    <!-- Other libraries and styles of your own -->
-    <!-------------------------------------------->
+    <!-- Other libraries go here -->
+
+    <!-- Link to styles of your own -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Kalam:wght@700&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="../styles/style.css">
-
+    <link rel="stylesheet" href="./styles/style.css">
   </head>
 
   <body>
@@ -51,15 +47,23 @@
     <nav id="navbarPlaceholder"></nav>
 
     <!-- the body of our page goes here -->
-    <div id="logged_in" class="container after-nav">
-      <div class="card text-center">
-        <div class="card-header">
-          Task is posted successfully!
-        </div>
-        <div class="card-body">
-          <a href="task.html" class="btn shadow-none submission_submit_btn">View Tasks</a>
+    <div class="px-4 py-5 my-5 text-center after-nav container">
+      <div class="overflow-hidden" style="max-height: 30vh;">
+        <div class="container px-5 my-3">
+            <img src="./images/logo.png" class="img-fluid border rounded-3 shadow-lg mb-3" alt="LearnStream Logo"
+                width="200" height="200" loading="lazy">
         </div>
       </div>
+        <h1 class="display-5 fw-bold py-2 my-3">Welcome to Learn Stream</h1>
+        <h2 style="font-family: 'Kalam', cursive; font-size: 0.9em;" >#<span style="text-decoration: underline;">Learning</span> #<span style="text-decoration: underline;">ToDo</span> #<span style="text-decoration: underline;">Time Management</span> #<span style="text-decoration: underline;">Motivation</span></h2>
+        <!-- <img src="../images/app_screen.png" alt="Learn Stream app screen" style="width: 400px;"> -->
+        <h6 class="py-3"> Our LearnStream app is for students who wants to manage their school works in an efficient way and are having trouble with finding their course materials.</h6>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">Are you ready to learn?</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="login.html" class="btn px-4 gap-3 shadow-none submission_submit_btn" role="button">Log in</a>
+          </div>
+        </div>
     </div>
 
     <!-- our own footer goes here -->
@@ -70,8 +74,10 @@
     <!---------------------------------------------->
 
     <!-- Link to scripts of your own -->
-    <script src="../scripts/firebaseAPI_TEAM07.js"></script>
-    <script src="../scripts/skeleton.js"></script>
-    <script src="../scripts/log_in.js"></script>
+    <script src="./scripts/firebaseAPI_TEAM07.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/log_in.js"></script>
+
+    
   </body>
 </html>

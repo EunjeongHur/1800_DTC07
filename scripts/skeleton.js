@@ -3,3 +3,5 @@ function loadSkeleton(){
     console.log($('#footerPlaceholder').load('../text/footer.html'));
 }
 loadSkeleton();
+
+console.log("inside skeleton.js")
