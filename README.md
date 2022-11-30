@@ -6,6 +6,11 @@
 
 ## General Info
 
+Please feel free to explore our mobile web application using our demo account. 
+<b>App link</b>: https://comp1800-project-4d66b.web.app/
+<b>User Email for Demo</b>: demo@test.ca
+<b>User Password for Demo</b>: 123456
+
 This browser based web application, LearnStream is for helping students to find all their course materials easily with a user-friendly UI/UX and track their done and undone tasks. 
 
 - Hi my name is Sam, I am really excited to learn more programming languages.
@@ -18,8 +23,10 @@ Technologies used for this project:
 
 - HTML, CSS
 - JavaScript
+- JQuery
 - Bootstrap
 - Firebase Database, Firebase Storage, Firebase Authentication
+- Firebase Hosting
 
 ## Content
 
@@ -73,6 +80,18 @@ Firebase hosting files:
 
 
 ```
+
+##Cite
+- [1] “Get Started with the Google Fonts API,” Google Developers. https://developers.google.com/fonts/docs/getting_started
+- [2] “Google Fonts,” Google Fonts. https://fonts.google.com/icons
+- [3] “Hosted Libraries,” Google Developers. https://developers.google.com/speed/libraries
+- [4] “Get Started with Firebase Authentication on Websites,” Firebase. https://firebase.google.com/docs/auth/web/start
+- [5] Google, “Cloud Firestore  |  Firebase,” Firebase, 2019. https://firebase.google.com/docs/firestore
+- ‌[6] “Cloud Storage  |  Firebase,” Firebase, 2019. https://firebase.google.com/docs/storage
+- ‌[7] “Firebase Hosting,” Firebase. https://firebase.google.com/docs/hosting
+- [8] J. F. - js.foundation, “jQuery CDN.” https://releases.jquery.com/
+- [9] M. Otto, “Introduction,” Getbootstrap.com, 2019. https://getbootstrap.com/docs/4.0/getting-started/introduction/
+- [10] M. O. contributors Jacob Thornton, and Bootstrap, “Introduction,” getbootstrap.com. https://getbootstrap.com/docs/5.0/getting-started/introduction/
 
 Tips for file naming files and folders:
 
