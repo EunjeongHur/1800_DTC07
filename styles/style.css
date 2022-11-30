@@ -1,184 +1,191 @@
-body{
-    background-color: #F3F5F9;
+body {
+	background-color: #f3f5f9;
 }
 
-h1{
-    font-family: 'IBM Plex Sans', sans-serif;
+h1 {
+	font-family: "IBM Plex Sans", sans-serif;
 }
 
-.after-nav{
-    padding-top: 80px;
+.after-nav {
+	padding-top: 80px;
 }
 
-.outside_card{
-    padding: 0px;
+.outside_card {
+	padding: 0px;
 }
 
-.outside_card:focus{
-    border: none;
-    border-radius: 0%;
-    box-shadow: none;
+.outside_card:focus {
+	border: none;
+	border-radius: 0%;
+	box-shadow: none;
 }
 
-.inside_card{
-    padding-left: 10px;
+.inside_card {
+	padding-left: 10px;
 }
 
-.log_in_alert{
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    margin-top: -18px;
-    padding-top: 5px;
-    padding-bottom: 3px;
-    display: flex;
+.log_in_alert {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	margin-top: -18px;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	display: flex;
 }
 
-.log_in_alert button{
-    border: none;
-    background-color: transparent;
-    font-size: 1.2em;
-    margin-top: -3px;
-    margin-left: 220px;
-    text-align: right;
+.log_in_alert button {
+	border: none;
+	background-color: transparent;
+	font-size: 1.2em;
+	margin-top: -3px;
+	margin-left: 220px;
+	text-align: right;
 }
 
-.submission_cancel_btn{
-    transition-duration: 0.3s;
-    background-color: #CDD5DC; 
-    border-color: #CDD5DC; 
-    color: #202122;
+.submission_cancel_btn {
+	transition-duration: 0.3s;
+	background-color: #cdd5dc;
+	border-color: #cdd5dc;
+	color: #202122;
 }
 
-.submission_submit_btn{
-    transition-duration: 0.3s;
-    color: #fefefe;
-    background-color: #1D3557; 
-    border-color: #1D3557;
+.submission_submit_btn {
+	transition-duration: 0.3s;
+	color: #fefefe;
+	background-color: #1d3557;
+	border-color: #1d3557;
 }
-.submission_submit_btn:hover{
-    background-color: #fefefe;
-}
-
-.edit_btn{
-    transition-duration: 0.3s;
-    border-color: #1D3557;
-    background-color: #cdd5dc;
+.submission_submit_btn:hover {
+	background-color: #fefefe;
 }
 
-.delete_btn{
-    transition-duration: 0.3s;
-    border-color: red;
-    color: red;
-    background-color: #fefefe;
+.edit_btn {
+	transition-duration: 0.3s;
+	border-color: #1d3557;
+	background-color: #cdd5dc;
 }
 
-.edit_btn:hover{
-    background-color: #fefefe;
+.delete_btn {
+	transition-duration: 0.3s;
+	border-color: red;
+	color: red;
+	background-color: #fefefe;
 }
 
-.submission_submit_btn:hover, .submission_cancel_btn:hover{
-    background-color: #fefefe;
+.edit_btn:hover {
+	background-color: #fefefe;
 }
 
-.delete_btn:hover{
-    background-color: #DD3030;
-    color: #fefefe
+.submission_submit_btn:hover,
+.submission_cancel_btn:hover {
+	background-color: #fefefe;
 }
 
-#alert-flex{
-    display: flex;
-    justify-content: space-between;
+.delete_btn:hover {
+	background-color: #dd3030;
+	color: #fefefe;
 }
 
-#aboutus_div{
-    width: 80%;
-    margin: auto;
+#alert-flex {
+	display: flex;
+	justify-content: space-between;
 }
 
-#aboutus_div h1{
-    font-family: 'Kalam', cursive;
+#aboutus_div {
+	width: 80%;
+	margin: auto;
 }
 
-
-#menu_icon{
-    color: #F3F5F9;
-    font-size: 1.2rem;
+#aboutus_div h1 {
+	font-family: "Kalam", cursive;
 }
 
-#menu_icon:focus{
-    box-shadow: none;
+#menu_icon {
+	color: #f3f5f9;
+	font-size: 1.2rem;
 }
 
-#search{
-    width: 24rem;
-    margin-bottom: 15px;
-    margin-top: 20px;
+#menu_icon:focus {
+	box-shadow: none;
 }
 
-#account_circle_icon{
-    color: white;
-    font-size: 30px;
+#search {
+	width: 24rem;
+	margin-bottom: 15px;
+	margin-top: 20px;
 }
 
-#account_circle_in_profile{
-    font-size: 150px;
-    color: black;
+#account_circle_icon {
+	color: white;
+	font-size: 30px;
 }
 
-#submission_box{
-    padding: 15px 20px;
+#account_circle_in_profile {
+	font-size: 150px;
+	color: black;
 }
 
-#icon_arrow_forward, #icon_open_in_full{
-    color: #999999;
-    flex-grow: 1;
-    align-self: center;
-    text-align: right;
-    font-size: 20px;
+#submission_box {
+	padding: 15px 20px;
+}
+
+#icon_arrow_forward,
+#icon_open_in_full {
+	color: #999999;
+	flex-grow: 1;
+	align-self: center;
+	text-align: right;
+	font-size: 20px;
 }
 
 /* Dropdown Button */
 .dropbtn {
-    background-color: #303030;
-    color: white;
-    padding: 8px;
-    font-size: 8px;
-    border: none;
-    left: 250px;
+	background-color: #303030;
+	color: white;
+	padding: 8px;
+	font-size: 8px;
+	border: none;
+	left: 250px;
 }
-  
-  /* The container <div> - needed to position the dropdown content */
-.dropdown {
-    display: inline-block;
-}
-  
-  /* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 100px;
-    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
- }
-  
-  /* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
-    padding: 5px 7px;
-    text-decoration: none;
-    display: block;
-}
-  
-  /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
-  
-  /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
 
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
-  
-.inputGrade{
-    width: 90px;
-    height: 30px;
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+	display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 100px;
+	box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+	color: black;
+	padding: 5px 7px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+	background-color: #3e8e41;
+}
+
+.inputGrade {
+	width: 90px;
+	height: 30px;
 }
